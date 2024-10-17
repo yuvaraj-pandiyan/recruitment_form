@@ -1,0 +1,24 @@
+<!-- satheesh.. -->
+
+<div class="header">
+    <div class="headerLogo">
+        <div class="headerLeft">
+            <img src="../../../assets/hederLogo.svg" alt="" srcset=""> <h2>Recruitment Request Form.....</h2>
+        </div>
+        <div class="headerRight">
+            <img src="../../../assets/waymore-logo.svg" alt="" srcset="">
+        </div>
+    </div>
+    <div class="formContainer">
+        <div>
+            <ul>
+                <li *ngFor="let heading of headNavigator; index as i" [ngClass]="[heading.isActive?'activePage':'', heading.isCurrentTab?'currentPage':''] ">
+                    <div>
+                        <h4 class="index">{{i+1}}</h4>
+                    </div>
+                        {{heading.name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

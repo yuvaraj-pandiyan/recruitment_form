@@ -1,0 +1,111 @@
+.header {
+    padding-bottom: 35px;
+    .headerLogo {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 ;
+        color: #003366;
+
+        div {
+            display: flex;
+            &.headerLeft{
+                margin-left: 25px;
+                align-items: center;
+                gap: 20px;
+                h2{
+                    margin: 0;
+                    font-weight: 500;
+                    font-size: 25px;
+                }
+            }
+            &.headerRight{
+                img{
+                    width: 65%;
+                }
+            }
+        }
+
+    }
+
+    .formContainer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 35px;
+        ul {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            padding: 0;
+            margin: auto;
+            max-width: 1000px;
+
+            li {
+                list-style: none;
+                cursor: pointer;
+                display: flex;
+                gap: 10px;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                isolation: isolate;
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .index {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 25px;
+                        height: 25px;
+                        color: #003397;
+                        border: 1px solid #003366;
+                        border-radius: 50%;
+                        margin: 0;
+                        background-color: #FFF;
+                    }
+                    
+                }
+                &.currentPage{
+                    div{
+                        .index{
+                            background-color: #ddeaff;
+                        }
+                    }
+                }
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    z-index: -1;
+                    width: 100%;
+                    height: 1px;
+                    border-bottom: 1px dashed #333;
+                    left: 50%;
+                    top: 12px;
+                }
+               
+                &.activePage{
+                    &::before{
+                        border-color: #003366;
+                    }
+                    div{
+                        .index{
+                            color: #FFF;
+                            background-color: #003366;
+                        }
+                    }
+                }
+                &:last-child{
+                    &::before{
+                        display: none;
+                    }
+                }
+
+                
+            }
+        }
+    }
+}

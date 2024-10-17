@@ -1,0 +1,92 @@
+
+
+.form-container{
+    display: grid;
+    margin: 25px 0 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    .inner-container{
+        max-width: 600px;
+        .input-field{
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            padding: 5px 15px;
+            margin-bottom: 20px;
+            
+            label{
+                display: flex;
+                align-items: center;
+                margin-right: 10px;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 20px;
+                justify-content: flex-end;
+                span{
+                    color:red;
+                    padding-left: 5px;
+                }
+            }
+            input{
+                height: 40px;
+                margin-left: 10px;
+                border: 1px solid #DDE2E4;
+                padding: 1px 5px;
+            }
+            
+            .valid-error {
+                outline-color: red;
+                border: 2px solid red !important;
+             }
+            
+        }
+        .warning-letter{
+            display: flex;
+            justify-content: end;
+            color:red;
+            grid-column: 1/-1;
+        }
+        .radio-group{
+            padding: 20px 15px;
+            p{
+                font-family: 'Poppins';
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 20px;
+                span{
+                    color: red;
+                    padding-left: 5px;
+                }
+            }
+            div{
+                padding: 5px;
+            }
+        }
+    }
+}
+
+.report-line-container {
+
+    label {
+        align-items: center;
+        margin-right: 10px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+        justify-content: flex-end;
+        position: relative;
+        left: 667px;
+        span{
+            color:red;
+            padding-left: 5px;
+        }
+    }
+    .reporting-check-box-container{
+        position: relative;
+        left: 667px;
+    }
+}
+
+@media (min-width: 1200px){
+    .radio-group.radio{
+        margin-left: 70px;
+    }
+} 
