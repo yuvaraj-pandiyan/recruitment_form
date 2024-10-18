@@ -10,15 +10,6 @@ export const common = {
     EMPTY_SPACE_TEXT_AREA: /^(?!\s*$)[\s\S]+/
 }
 
-export const exAgency = ['regeneration', 'recruitee'];
-
-export const domestic = ['naukri', 'foundit', 'otherDomestic'];
-
-export const proposedWorkFlow = ['AI Ranking', 'Discovery Phase', 'PQQ', 'Qualification', 'Assesment', 'Interview Questions', 'CEO interview', 'Work Order', 'BGV', 'Onboarding Applicant'];
-
-export const bgv = 'bgv';
-
-export const suggestedWorkFlow = 'suggestedWorkFlow';
 
 export const formValidStatus = {
     'stage 1': 'INVALID',
@@ -27,37 +18,3 @@ export const formValidStatus = {
     'stage 4': 'INVALID',
     'stage 5': 'INVALID',
 }
-
-export const jobDescriptionValue = {
-    'OPTION1': 'Directly write the Job titles',
-    'OPTION2': 'continue by selecting the below'
-}
-
-export const educationalRequirementDropDownValue = [
-    'Vocational/Technical Certifications',
-    'High School Diploma or Equivalent',
-    'Associate Degree',
-    `Bachelor's Degree`,
-    'Doctoral Degree (Ph.D., MD, etc.)'
-]
-
-export const educationalRequirementValues =
-    `Vocational/Technical Certifications: Relevant for roles requiring specific technical skills (e.g., HVAC certification, CompTIA A+ certification).
-     High School Diploma or Equivalent: A common baseline for many positions.
-     Associate Degree: Demonstrates further education, may be preferred for some roles.
-     Bachelor's Degree: Standard requirement for many professional positions.
-     Doctoral Degree (Ph.D., MD, etc.): Typically for research-heavy, academic, or some medical roles.`
-
-
- export const roleCategoryValue = [
-    'Entry-Level',
-    'Individual Contributor',
-    'Team Leader',
-    'Manager',
-    'Senior-Level',
-    'Executive' 
-]
-
-
-
-export const geoLocationAPI = 'https://geojs.srv.waymore.io/geo.js'

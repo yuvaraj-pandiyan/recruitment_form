@@ -8,14 +8,22 @@ import { RequesterInfoComponent } from './components/requester-info/requester-in
 import { HeaderComponent } from './components/header/header.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavigatorComponent } from './components/navigator/navigator.component';
+import { JobDetailsComponent } from './components/job-details/job-details.component';
+import { ReqruitmentRequestComponent } from './components/reqruitment-request/reqruitment-request.component';
+import { FooterComponent } from './components/footer/footer.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RequesterInfoComponent,
-    HeaderComponent
+    HeaderComponent,
+    NavigatorComponent,
+    JobDetailsComponent,
+    ReqruitmentRequestComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

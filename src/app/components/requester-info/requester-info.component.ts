@@ -13,11 +13,11 @@ export class RequesterInfoComponent {
 
   requesterFirstName = 0
   public requesterInfoGroups!:FormGroup | any;
-
-  constructor(private requesterInfoBuilder:FormBuilder, private recruitmentRequestFormService$:RequesterService){}
+  currentForm = 1;
+  constructor(private requesterInfoBuilder:FormBuilder, private recruitmentRequestForm$:RequesterService){}
 
   ngOnInit(): void {
-    let isExist = this.recruitmentRequestFormService$.listOfFormDetails.find((val:any) => val.formName ==='requester');
+    let isExist = this.recruitmentRequestForm$.listOfFormDetails.find((val:any) => val.formName ==='requester');
     if (isExist){
       this.requesterInfoGroups = isExist.formDetails;
       this.requesterInfoGroups.controls['dontReportNo'].value === true ? this.onCheckboxChange('no') : '';
@@ -29,21 +29,21 @@ export class RequesterInfoComponent {
       this.requesterInfoGroups.patchValue(retrievedFormData);     
       this.requesterInfoGroups.updateValueAndValidity();
       this.requesterInfoGroups.controls['dontReportNo'].value === true ? this.onCheckboxChange('no') : '';
-      this.recruitmentRequestFormService$.formValidator.next({status: 'VALID'});
+      this.recruitmentRequestForm$.formValidator.next({status: 'VALID'});
     }
     else{
       this.requestorInfoForm();
     }
-      this.recruitmentRequestFormService$.currentStepper.next({ action: 'first', value:'0' });
-    this.recruitmentRequestFormService$.formValidator.next(this.requesterInfoGroups);
+      this.recruitmentRequestForm$.currentStepper.next({ action: 'first', value:'0' });
+    this.recruitmentRequestForm$.formValidator.next(this.requesterInfoGroups);
     this.requesterInfoGroups.valueChanges
       .pipe(debounceTime(250))
       .subscribe((value:any) => {
-        isExist = this.recruitmentRequestFormService$.listOfFormDetails.find((val:any) => val.formName ==='requester');
+        isExist = this.recruitmentRequestForm$.listOfFormDetails.find((val:any) => val.formName ==='requester');
 
-        this.recruitmentRequestFormService$.formValidator.next(this.requesterInfoGroups);
+        this.recruitmentRequestForm$.formValidator.next(this.requesterInfoGroups);
         if(!Boolean(isExist)){
-          this.recruitmentRequestFormService$.listOfFormDetails.push({formName:'requester', formDetails:this.requesterInfoGroups});
+          this.recruitmentRequestForm$.listOfFormDetails.push({formName:'requester', formDetails:this.requesterInfoGroups});
         }
         const isEdit = localStorage.getItem('isEdit') === '1' ? true : false;
         if(!isEdit) {
@@ -109,5 +109,9 @@ export class RequesterInfoComponent {
     }
   
     return null;
+  }
+
+  nextPage(){
+    this.currentForm = this.currentForm+1;
   }
 }

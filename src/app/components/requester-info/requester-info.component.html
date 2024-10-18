@@ -1,14 +1,14 @@
 
 
 <div>
-    <div class="announcement-tab">
-        <img src="../../../../assets/image/importantAnnouncement.svg" alt="">
+    <div class="noteBox">
+        <img src="../../../assets/noteLogo.svg" alt="">
         <p class="italic">
             Important Information regarding the recruitment and hiring policy according to business policy, at the
             beginning of July 2022, every new recruit shall have at least 
 
-            3+ years of previous experience in a similar job (mid-senior or senior staff). Requests for junior posts
-            should be authorized by the CEO prior to the start of the recruiting process.
+            <!-- 3+ years of previous experience in a similar job (mid-senior or senior staff). Requests for junior posts
+            should be authorized by the CEO prior to the start of the recruiting process. -->
         </p>
     </div>
     <div [formGroup]="requesterInfoGroups">
@@ -122,34 +122,10 @@
                         <small *ngIf="requesterInfoGroups.controls['managerJobTitle'].hasError('pattern')">Alphabets and Numbers only.</small>
                 </div>
             </div>
-            <!-- <div class="radio-group radio">
-                <p>Has your manager approved the new hiring? <span>*</span></p>
-                <div>
-                    <label >
-                        <input type="radio" value="yes" formControlName="managerApprove">
-                        <span>Yes</span>
-                    </label>
-                </div>
-                <div>
-                    <label >
-                        <input type="radio" value="no" formControlName="managerApprove">
-                        <span>No</span>
-                    </label>
-                </div>
-                <div>
-                    <label >
-                        <input type="radio" value="the position was included in the annual budget" formControlName="managerApprove">
-                        <span>The position was included in the annual budget</span>
-                    </label>
-                </div>
-                <div>
-                    <label >
-                        <input type="radio" value="No additional approval is required (C-level request)" formControlName="managerApprove">
-                        <span>No additional approval is required (C-level request)</span>
-                    </label>
-                </div>
-            </div> -->
+          </div>
         </div>
-        </div>
+        <div class="nextButton">
+            <button [disabled]="requesterInfoGroups.invalid" (click)="nextPage()" >Next</button>
+          </div>
     </div>
 </div>

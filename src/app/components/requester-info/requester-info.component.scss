@@ -1,5 +1,4 @@
 
-
 .form-container{
     display: grid;
     margin: 25px 0 0;
@@ -20,6 +19,7 @@
                 font-size: 14px;
                 line-height: 20px;
                 justify-content: flex-end;
+                // color: rgb(3, 24, 82);
                 span{
                     color:red;
                     padding-left: 5px;
@@ -85,8 +85,31 @@
     }
 }
 
+
+.nextButton{
+    width: 90%;
+    display: flex;
+    justify-content: end;
+    button{
+        height: 35px;
+        width: 150px;
+        background-color: rgb(2, 21, 82);
+        border-radius: 5px;
+        font-weight: 700;
+        color: white;
+    }
+}
+
 @media (min-width: 1200px){
     .radio-group.radio{
         margin-left: 70px;
     }
 } 
+
+.noteBox{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}

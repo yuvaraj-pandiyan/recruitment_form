@@ -15,9 +15,17 @@ export class RequesterService {
   public isFromEdit = new BehaviorSubject<boolean>(false);
   isNewWorkFlow = new BehaviorSubject<boolean>(false);
   myWokFlowArray = new BehaviorSubject<any>([]);
-
-
+  private nextClickedSource = new Subject<void>();
+  mtId = new Subject<any>();
+  nextClicked$ = this.nextClickedSource.asObservable();
   public isRadioTouched = new Subject<boolean>()
 
   constructor() { }
+
+  triggerNext() {
+    this.nextClickedSource.next();
+  }
+
+ 
+  
 }
