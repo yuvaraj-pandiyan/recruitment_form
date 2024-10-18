@@ -16,8 +16,8 @@
             <div>
                 <label> Do you have a reporting line<span>*</span></label>
                 <span class="reporting-check-box-container">
-                    <mat-checkbox color="primary" formControlName="dontReportYes" (change)="onCheckboxChange('yes')">Yes</mat-checkbox>
-                    <mat-checkbox color="primary" formControlName="dontReportNo" (change)="onCheckboxChange('no')">No</mat-checkbox>
+                    <mat-checkbox color="primary" formControlName="dontReportYes" (click)="onCheckboxChange('yes')">Yes</mat-checkbox>
+                    <mat-checkbox color="primary" formControlName="dontReportNo" (click)="onCheckboxChange('no')">No</mat-checkbox>
                 </span>
             </div>
         </span>
@@ -126,6 +126,6 @@
         </div>
         <div class="nextButton">
             <button [disabled]="requesterInfoGroups.invalid" (click)="nextPage()" >Next</button>
-          </div>
+        </div>
     </div>
 </div>

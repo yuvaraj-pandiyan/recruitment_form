@@ -1,8 +1,6 @@
-import { Component,SimpleChanges } from '@angular/core';
+import { Component,EventEmitter,Output } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { debounceTime, interval, map } from 'rxjs';
-import { RequesterService } from '../../components/requester.service';
-import { common, formValidStatus } from '../../constant';
+import { common } from '../../constant';
 @Component({
   selector: 'app-requester-info',
   templateUrl: './requester-info.component.html',
@@ -11,48 +9,18 @@ import { common, formValidStatus } from '../../constant';
 // 
 export class RequesterInfoComponent {
 
-  requesterFirstName = 0
-  public requesterInfoGroups!:FormGroup | any;
-  currentForm = 1;
-  constructor(private requesterInfoBuilder:FormBuilder, private recruitmentRequestForm$:RequesterService){}
+  public requesterInfoGroups!:FormGroup;
+  @Output() emitForm = new EventEmitter<FormGroup>();
+  @Output() pageChange = new EventEmitter<boolean>();
+
+  constructor(private requesterInfoBuilder:FormBuilder) {    
+    this.requestorInfoForm();
+  }
 
   ngOnInit(): void {
-    let isExist = this.recruitmentRequestForm$.listOfFormDetails.find((val:any) => val.formName ==='requester');
-    if (isExist){
-      this.requesterInfoGroups = isExist.formDetails;
-      this.requesterInfoGroups.controls['dontReportNo'].value === true ? this.onCheckboxChange('no') : '';
-    }
-    else if(localStorage.getItem('requester')){
-      this.requestorInfoForm();
-      const requestorValues:any = localStorage.getItem('requester');
-      const retrievedFormData = JSON.parse(requestorValues);
-      this.requesterInfoGroups.patchValue(retrievedFormData);     
-      this.requesterInfoGroups.updateValueAndValidity();
-      this.requesterInfoGroups.controls['dontReportNo'].value === true ? this.onCheckboxChange('no') : '';
-      this.recruitmentRequestForm$.formValidator.next({status: 'VALID'});
-    }
-    else{
-      this.requestorInfoForm();
-    }
-      this.recruitmentRequestForm$.currentStepper.next({ action: 'first', value:'0' });
-    this.recruitmentRequestForm$.formValidator.next(this.requesterInfoGroups);
-    this.requesterInfoGroups.valueChanges
-      .pipe(debounceTime(250))
-      .subscribe((value:any) => {
-        isExist = this.recruitmentRequestForm$.listOfFormDetails.find((val:any) => val.formName ==='requester');
-
-        this.recruitmentRequestForm$.formValidator.next(this.requesterInfoGroups);
-        if(!Boolean(isExist)){
-          this.recruitmentRequestForm$.listOfFormDetails.push({formName:'requester', formDetails:this.requesterInfoGroups});
-        }
-        const isEdit = localStorage.getItem('isEdit') === '1' ? true : false;
-        if(!isEdit) {
-          localStorage.setItem('requester', JSON.stringify(this.requesterInfoGroups.value));
-          let totalFormValidStatus = localStorage.getItem('totalFormValidStatus') ? JSON.parse(localStorage.getItem('totalFormValidStatus') as string ): formValidStatus;
-          totalFormValidStatus['stage 1'] = this.requesterInfoGroups.status;
-          localStorage.setItem('totalFormValidStatus',JSON.stringify(totalFormValidStatus));
-        }
-      }); 
+    this.requesterInfoGroups.valueChanges.subscribe(() => {
+      this.emitForm.emit(this.requesterInfoGroups);
+    });
   }
 
   requestorInfoForm(){
@@ -111,7 +79,7 @@ export class RequesterInfoComponent {
     return null;
   }
 
-  nextPage(){
-    this.currentForm = this.currentForm+1;
+  nextPage() {
+    this.pageChange.emit(true);
   }
 }

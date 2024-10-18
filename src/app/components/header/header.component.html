@@ -9,16 +9,12 @@
             <img src="../../../assets/waymore-logo.svg" alt="" srcset="">
         </div>
     </div>
-    <div class="formContainer">
-        <div>
-            <ul>
-                <li *ngFor="let heading of headNavigator; index as i" [ngClass]="[heading.isActive?'activePage':'', heading.isCurrentTab?'currentPage':''] ">
-                    <div>
-                        <h4 class="index">{{i+1}}</h4>
-                    </div>
-                        {{heading.name}}
-                </li>
-            </ul>
-        </div>
-    </div>
+    <ul class="formContainer">
+        <li *ngFor="let heading of headNavigator; index as i" [ngClass]="[heading.isActive?'activePage':'', heading.isCurrentTab?'currentPage':''] ">
+            <div>
+                <h4 class="index">{{i+1}}</h4>
+            </div>
+                {{heading.name}}
+        </li>
+    </ul>
 </div>

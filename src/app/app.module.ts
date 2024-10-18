@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
 import { RequesterInfoComponent } from './components/requester-info/requester-info.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -12,18 +11,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigatorComponent } from './components/navigator/navigator.component';
 import { JobDetailsComponent } from './components/job-details/job-details.component';
 import { ReqruitmentRequestComponent } from './components/reqruitment-request/reqruitment-request.component';
-import { FooterComponent } from './components/footer/footer.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     RequesterInfoComponent,
     HeaderComponent,
     NavigatorComponent,
     JobDetailsComponent,
-    ReqruitmentRequestComponent,
-    FooterComponent
+    ReqruitmentRequestComponent
   ],
   imports: [
     BrowserModule,

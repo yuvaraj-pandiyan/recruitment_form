@@ -1,10 +1,10 @@
 <div>
   <div [ngSwitch]="step">
     <div *ngSwitchCase="1">
-      <app-requester-info></app-requester-info>
+      <app-requester-info (emitForm)="setFormValue($event)" (pageChange)="pageChange($event)"></app-requester-info>
     </div>
     <div *ngSwitchCase="2">
-      <app-job-details></app-job-details>
+      <app-job-details (emitForm)="setFormValue($event)" (pageChange)="pageChange($event)"></app-job-details>
     </div>
     <div *ngSwitchDefault>
       <app-reqruitment-request></app-reqruitment-request>

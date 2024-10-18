@@ -9,12 +9,3 @@ export const common = {
     EMPTY_SPACE: /^(?!\s*$).+/,
     EMPTY_SPACE_TEXT_AREA: /^(?!\s*$)[\s\S]+/
 }
-
-
-export const formValidStatus = {
-    'stage 1': 'INVALID',
-    'stage 2': 'INVALID',
-    'stage 3': 'INVALID',
-    'stage 4': 'INVALID',
-    'stage 5': 'INVALID',
-}
