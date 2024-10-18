@@ -1,0 +1,203 @@
+<div class="BGV">
+    <div class="bgvHeader">
+        <p>Background Verification - BGV</p>..........................................................................................................................................................................
+    </div>
+    <form  class="bgvFormContant" [formGroup]="backgroundVerification" (ngSubmit)="formDetails()">
+         <div class="bgvLeftForm" formGroupName="generalDetails">
+            <div class="question">
+                <p>would you like to view & verify the payslips of an applicant ? </p>
+                    <label><input type="radio"  value="yes" formControlName="applicantPaySlips" /> Yes</label>
+                <label><input type="radio"  value="no" formControlName="applicantPaySlips" /> No</label>
+            </div>
+            <div class="question">
+                <p> would you like to view & verify the bank statement of the applicant ?</p>
+                <label><input type="radio"  value="yes" formControlName="applicantBankStatement"/> Yes</label>
+                <label><input type="radio"  value="no" formControlName="applicantBankStatement" /> No</label>
+            </div>
+            <div class="question">
+                <p>would you like the applicant to have education background ? </p>
+                <label><input type="radio"  value="yes" formControlName="applicantEducationBackground" /> Yes</label>
+                <label><input type="radio"  value="no" formControlName="applicantEducationBackground"  /> No</label>
+            </div>
+            <div class="question">
+                <p>
+                    would you like to know the line manager detail of an a applicant from previous company ? </p>
+                <label
+                  ><input type="radio"  value="yes" formControlName="applicantPrevManagerDet" /> Yes</label
+                >
+                <label><input type="radio"  value="no" formControlName="applicantPrevManagerDet" /> No</label>
+            </div>
+            <div class="question">
+                <p>
+                  would you like to know the total year of experience of an applicant so far ?
+                </p>
+                    <label
+                  ><input type="radio"  value="yes" formControlName="applicantTotalExperience" /> Yes</label
+                >
+                <label><input type="radio"  value="no" formControlName="applicantTotalExperience" /> No</label>
+            </div>
+            <div class="question">
+                <p>
+                    would you like to know the specific industry that the application worked on so far ?
+                </p>
+                <label
+                  ><input type="radio"  value="yes" formControlName="applicantWorkedIndustry"/> Yes</label
+                >
+                <label><input type="radio"  value="no" formControlName="applicantWorkedIndustry" /> No</label>
+            </div>
+            <div class="question">
+                <p>
+                    would you like to know the company list that the applicant worked on so far ?
+                </p>
+                <label
+                  ><input type="radio"  value="yes" formControlName="applicantWorkedCompanyList" /> Yes</label
+                >
+                <label><input type="radio"  value="no" formControlName="applicantWorkedCompanyList" /> No</label>
+            </div>
+            <div class="question">
+                <p>
+                    would you like to know thework mode of an applicant worked on so far ?
+                </p>
+                <label
+                  ><input type="radio"  value="yes" formControlName="applicantWorkMode" /> Yes</label
+                >
+                <label><input type="radio"  value="no" formControlName="applicantWorkMode" /> No</label>
+            </div>
+            <div class="question">
+                <p>
+                    would you like to know the product of the service that the applicant worked on so far ?
+                </p>
+                    <label
+                  ><input type="radio"  value="yes" formControlName="applicantWorkedProduct" /> Yes</label
+                >
+                <label><input type="radio"  value="no" formControlName="applicantWorkedProduct" /> No</label>
+            </div>
+            <div class="question">
+                <p>
+                    would you like to know the cerification detail of applicant ?
+                </p>
+                <label
+                  ><input type="radio"  value="yes" formControlName="applicantCertificationDet" /> Yes</label
+                >
+                <label><input type="radio"  value="no" formControlName="applicantCertificationDet"/> No</label>
+            </div>
+        </div> 
+         <div class="bgvRightForm">
+            <div formGroupName="generalDetails">
+                <div class="question">
+                    <p>
+                     Please Attach your proof of residence
+                    </p>
+                    <label
+                      ><input type="radio"  value="yes" formControlName=applicantProofOfResidency /> Yes</label
+                    >
+                    <label><input type="radio"  value="no" formControlName="applicantProofOfResidency" /> No</label>
+                </div>
+                <div class="question">
+                    <p>
+                      please attach your front and back view of passport
+                    </p>
+                    <label
+                      ><input type="radio"  value="yes" formControlName="applicantPassport"  /> Yes</label
+                    >
+                    <label><input type="radio"  value="no" formControlName="applicantPassport" /> No</label>
+                </div>
+                <div class="question">
+                    <p>
+                        please attach your front and back view of ID
+                    </p>
+                    <label
+                      ><input type="radio"  value="yes" formControlName="applicantId"/> Yes</label
+                    >
+                    <label><input type="radio"  value="no" formControlName="applicantId" /> No</label>
+                </div>
+                <div class="question">
+                    <p>
+                     Copies of forign languages ( if any )
+                    </p>
+                    <label
+                      ><input type="radio"  value="yes" formControlName="applicantForignLang" /> Yes</label
+                    >
+                    <label><input type="radio"  value="no" formControlName="applicantForignLang" /> No</label>
+                </div>
+                <div class="question">
+                    <p>
+                     Copies of Postgraduate deggree ( if any )
+                    </p>
+                    <label
+                      ><input type="radio"  value="yes" formControlName="applicantPostDegree" /> Yes</label
+                    >
+                    <label><input type="radio"  value="no" formControlName="applicantPostDegree" /> No</label>
+                </div>
+                <div class="question">
+                    <p>
+                     Copies of Diplomas ( if any )
+                    </p>
+                    <label
+                      ><input type="radio"  value="yes" formControlName="applicantDiploma" /> Yes</label
+                    >
+                    <label><input type="radio"  value="no" formControlName="applicantDiploma" /> No</label>
+                </div>
+            </div>
+            <div formGroupName="creditDetails">
+                <div class="labelBox">
+                    <label class="creditcheck">Credit Check</label>
+                </div>
+                <div class="question">
+                    <p>
+                    would you like to know applicant credit score ?
+                    </p>
+                    <label
+                      ><input type="radio"  value="yes" formControlName="applicantCreditScore"  /> Yes</label
+                    >
+                    <label><input type="radio"  value="no" formControlName="applicantCreditScore" /> No</label>
+                </div>
+                <div class="question">
+                    <p>
+                        would you like to know the total loans aplicant have ?
+                    </p>
+                    <label
+                      ><input type="radio"  value="yes" formControlName="applicantTotalLoans" /> Yes</label
+                    >
+                    <label><input type="radio"  value="no" formControlName="applicantTotalLoans" /> No</label>
+                </div>
+                <div class="question">
+                    <p>
+                        would you like to know the credit card misuse info ?
+                    </p>
+                    <label
+                      ><input type="radio"  value="yes"  formControlName="apllicantCreditCartInfo" /> Yes</label
+                    >
+                    <label><input type="radio"  value="no" formControlName="apllicantCreditCartInfo" /> No</label>
+                </div>
+            </div>
+           <div formGroupName="ativityDetails">
+            <div class="labelBox">
+                <label class="creditcheck">Creminal Activity</label>
+            </div>
+            <div class="question">
+                <p>
+                would you like to know applicant criminal activity ?
+                </p>
+                <label
+                  ><input type="radio"  value="yes" formControlName="applicantCriminalActivity" /> Yes</label
+                >
+                <label><input type="radio"  value="no" formControlName="applicantCriminalActivity" /> No</label>
+            </div>
+            <div class="question">
+                <p>
+                    would you like to know the aplicant cyber security activity
+                </p>
+                <label
+                  ><input type="radio"  value="yes" formControlName="applicantCyberSecurityActivity"  /> Yes</label
+                >
+                <label><input type="radio"  value="no" formControlName="applicantCyberSecurityActivity" /> No</label>
+            </div>
+           </div>
+        </div> 
+    </form>
+    <div class="nextButton">
+        <button>Previous</button>
+        <button (click)="formDetails()"> Submit</button>
+     </div>
+</div>

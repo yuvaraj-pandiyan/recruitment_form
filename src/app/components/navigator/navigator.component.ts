@@ -8,9 +8,13 @@ import { FormGroup } from '@angular/forms';
 })
 export class NavigatorComponent  {
   public step = 1;
+  
   requesterInfoFormGroup!: FormGroup;
   jobDetailsFormGroup!: FormGroup;
+  reqruitmentRequestComponent !: FormGroup;
+  backgroundVerification!: FormGroup;
 
+  
   setFormValue(form: FormGroup) {
     switch (this.step) {
       case 1:
@@ -20,7 +24,12 @@ export class NavigatorComponent  {
       case 2:
         this.jobDetailsFormGroup = form;
         break;
-    
+      case 3:
+        this.reqruitmentRequestComponent = form;
+        break;  
+      case 4:
+        this.backgroundVerification = form;
+        break;  
       default:
         break;
     }

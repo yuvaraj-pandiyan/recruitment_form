@@ -6,8 +6,14 @@
     <div *ngSwitchCase="2">
       <app-job-details (emitForm)="setFormValue($event)" (pageChange)="pageChange($event)"></app-job-details>
     </div>
+    <div  *ngSwitchCase="3">
+      <app-reqruitment-request (emitForm)="setFormValue($event)"  (pageChange)="pageChange($event)" ></app-reqruitment-request>
+    </div>
+    <div *ngSwitchCase="4">
+       <app-background-verification  (emitForm)="setFormValue($event)" (pageChange)="pageChange($event)"></app-background-verification>
+    </div>
     <div *ngSwitchDefault>
-      <app-reqruitment-request></app-reqruitment-request>
+       <app-summary></app-summary>
     </div>
   </div>
 </div>

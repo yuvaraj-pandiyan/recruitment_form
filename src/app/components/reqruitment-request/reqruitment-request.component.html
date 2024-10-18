@@ -1,1 +1,171 @@
-<p>reqruitment-request works!</p>
+<div class="reqruitmentRequest">
+  <div class="reqruitmentRequestHeader">
+    <img src="../../../assets/candle.png" alt="" />
+    <p class="italic">
+      To rank the applicant/candidate profiles using AI ranking, Please specify
+      the expectations for the ideal candidate here.
+    </p>
+  </div>
+  <form
+    [formGroup]="reqruitmentRequestComponent"
+    (ngSubmit)="formDetails()"
+    class="requestFormContant"
+  >
+    <div class="reqFormLeft">
+      <fieldset
+        class="requestFormBox"
+        id="fieldset1"
+        formGroupName="genderAndAge"
+      >
+        <legend>Gender & Age</legend>
+        <div class="question" id="question1">
+          <p>Please specify the ideal candidate profile</p>
+          <p>is this role intended for a specific gender</p>
+          <label class="custom-radio" >
+            <input type="radio" value="yes" formControlName="genderVal" />
+            Yes</label>
+          <label ><input type="radio" value="no" formControlName="genderVal" />
+            No</label>
+        </div>
+
+        <div class="question" id="question2">
+          <p>is this role intended for a specific Age</p>
+          <label id="labell">
+            <input
+              type="radio"
+              value="yes"
+              required
+              formControlName="ageVal"
+            />
+            Yes</label>
+          <label><input type="radio" value="no" formControlName="ageVal" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="requestFormBox" id="fieldset2" formGroupName="maritalStatus" >
+        <legend>Marital Status</legend>
+        <div class="question" id="question1">
+          <p>Please specify the ideal candidate profile</p>
+          <p>is this role intended for a specific Marital Status</p>
+          <label><input type="radio" value="yes" required /> Yes</label>
+          <label><input type="radio" value="no" formControlName="maritalStatusVal" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="requestFormBox" id="fieldset3" formGroupName="physicalfitness">
+        <legend>Physical Fitness</legend>
+        <div class="question" id="question1">
+          <p>Please specify the ideal candidate profile</p>
+
+          <p>
+            is this role intended for a specific Marital Status body mass index
+          </p>
+          <label><input type="radio"  value="yes" formControlName="massVal" /> Yes</label>
+          <label><input type="radio"  value="no" formControlName="massVal"  /> No</label>
+        </div>
+
+        <div class="question" id="question2">
+          <p>
+            is this role intended for a specific Marital Status Body physical
+            fitness condition
+          </p>
+          <label><input type="radio" value="yes" formControlName="physicalConVal" /> Yes</label>
+          <label><input type="radio"  value="no" formControlName="physicalConVal" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="requestFormBox" id="fieldset4" formGroupName="internelMobility" >
+        <legend>Hiring & Internal Mobility</legend>
+        <div class="question" id="question1">
+          <p>is this role time critical area</p>
+          <label><input type="radio"  value="yes" formControlName="criticalVal" /> Yes</label>
+          <label><input type="radio"  value="no" formControlName="criticalVal" /> No</label>
+        </div>
+
+        <div class="question" id="question2">
+          <p>
+            would you like to aim higher and may be discover less qualified role
+            to fill more open position for the department at once
+          </p>
+          <label><input type="radio" value="yes" formControlName="openPositioVal" /> Yes</label>
+          <label><input type="radio" value="no" formControlName="openPositioVal"  /> No</label>
+        </div>
+        <div class="question" id="question2">
+          <p>Could the position be coverd internally</p>
+          <label><input type="radio"  value="yes" formControlName="coverdPosVal"  /> Yes</label>
+          <label><input type="radio"  value="no" formControlName="coverdPosVal" /> No</label>
+        </div>
+      </fieldset>
+    </div>
+    <div class="leftRight">
+      <fieldset class="requestFormBox" id="fieldset1" formGroupName="department">
+        <legend>Department</legend>
+        <div class="question" id="question1">
+          <p>Please specify the ideal candidate profile</p>
+
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum
+            adius cupiditate perferendis sequi sa
+          </p>
+          <label
+            ><input type="radio"  value="yes" formControlName="workedPreviosly" /> Yes</label
+          >
+          <label><input type="radio"  value="no" formControlName="workedPreviosly" /> No</label>
+        </div>
+
+        <div class="question" id="question2">
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum
+            adius cupiditate perferendis sequi sa
+          </p>
+          <label
+            ><input type="radio" value="yes" formControlName="workedEarly" /> Yes</label
+          >
+          <label><input type="radio" value="no" formControlName="workedEarly" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="requestFormBox" id="fieldset2" formGroupName="industries">
+        <legend>Industries</legend>
+        <div class="question" id="question1">
+          <p>Please specify the ideal candidate profile</p>
+
+          <p>Do you enjoy outdoor activities?</p>
+          <label
+            ><input type="radio" value="yes" formControlName="specifyIndustry" /> Yes</label
+          >
+          <label><input type="radio"  value="no" formControlName="specifyIndustry" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="requestFormBox" id="fieldset3" formGroupName="companies">
+        <legend>Companies</legend>
+        <div class="question" id="question1">
+          <p>Please specify the ideal candidate profile</p>
+
+          <p>Do you enjoy outdoor activities?</p>
+          <label
+            ><input type="radio" value="yes" formControlName="workedCompany" /> Yes</label
+          >
+          <label><input type="radio"  value="no" formControlName="workedCompany" /> No</label>
+        </div>
+
+        <div class="question" id="question2">
+          <p>Do you like to try new foods?</p>
+          <label
+            ><input type="radio" value="yes" formControlName="currentCompany" /> Yes</label
+          >
+          <label><input type="radio"  value="no" formControlName="currentCompany" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="requestFormBox" id="fieldset4" formGroupName="products">
+        <legend>Products</legend>
+        <div class="question" id="question2">
+          <p>Do you like to try new foods?</p>
+          <label
+            ><input type="radio" value="yes" formControlName="specifyProduct"/> Yes</label
+          >
+          <label><input type="radio" value="no"  formControlName="specifyProduct" /> No</label>
+        </div>
+      </fieldset>
+    </div>
+  </form>
+  <div class="nextButton">
+    <button> Submit</button>
+ </div>
+</div>

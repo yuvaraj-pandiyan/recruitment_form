@@ -1,6 +1,7 @@
 import { Component,EventEmitter,Output } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { common } from '../../constant';
+import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-requester-info',
   templateUrl: './requester-info.component.html',
@@ -13,8 +14,13 @@ export class RequesterInfoComponent {
   @Output() emitForm = new EventEmitter<FormGroup>();
   @Output() pageChange = new EventEmitter<boolean>();
 
-  constructor(private requesterInfoBuilder:FormBuilder) {    
+  constructor(private requesterInfoBuilder: FormBuilder, public dialogRef: MatDialogRef<RequesterInfoComponent>) {
     this.requestorInfoForm();
+  }
+  
+
+  onClose(): void {
+    this.dialogRef.close();
   }
 
   ngOnInit(): void {

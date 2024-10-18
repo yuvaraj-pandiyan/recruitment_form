@@ -1,0 +1,113 @@
+.reqruitmentRequest{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.reqruitmentRequestHeader{
+    height: 50px;
+    width: 55%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img{
+        height: 50px;
+        width: 50px;
+    }
+    p{
+        text-align: justify;
+        margin-top: 10px ;
+    }
+}
+
+.requestFormContant{
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 20px;
+    .requestFormBox{
+        width: 90%;
+        height: fit-content;
+        border: 1px solid black;
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        margin-top: 20px;
+        .question{
+            display: flex;
+            flex-direction: column;
+            font-weight: 500;
+            color: rgb(2, 16, 80);
+            font-size: 15px;
+            p{
+                margin: 0%;
+                padding: 0%;
+                label{
+                    background-color: aqua;
+                }
+            }
+        }
+
+        legend{
+            border: 1px solid black;
+            padding: 3px 7px;
+            border-radius: 2px;
+            margin-left: -21px;
+        }
+    }
+}
+
+ #fieldset1{
+    border-color: rgba(0, 128, 0, 0.445);
+    legend{
+    border-color: rgba(0, 128, 0, 0.562);
+    background-color: rgba(0, 128, 0, 0.301);
+        
+    }
+ }
+ #fieldset2{
+    border-color: rgba(102, 51, 153, 0.637);
+    legend{
+        border-color: rgba(102, 51, 153, 0.548);  
+        background-color: rgba(102, 51, 153, 0.418);
+      }
+    
+ }
+ #fieldset3{
+    border-color: rgba(255, 68, 0, 0.397);
+    legend{
+        border-color: rgba(255, 68, 0, 0.418); 
+        background-color: rgba(255, 68, 0, 0.39); 
+   }
+    
+ }
+ #fieldset4{
+    border-color: rgba(1, 23, 146, 0.479);
+
+    legend{
+        border-color: rgba(3, 15, 128, 0.568);
+        background-color:rgba(3, 15, 128, 0.338);
+         
+     }
+ }
+
+
+ .nextButton{
+    width: 60%;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 20PX;
+    button{
+        height: 30px;
+        width: 150px;
+        background-color:rgba(3, 38, 90, 0.911);
+        border: none;
+        color: white;
+        font-weight: 700;
+        border-radius: 3px;
+    }
+ }
