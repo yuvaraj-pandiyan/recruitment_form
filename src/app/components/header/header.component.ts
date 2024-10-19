@@ -8,11 +8,19 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
 
   public headNavigator = [
-    {name: "Requester Info", isActive: false, isCurrentTab: true},
-    {name: "Job Details", isActive: false, isCurrentTab: false},
-    {name: "Recruitment Req's", isActive: false, isCurrentTab: false},
-    {name: "Background Verification", isActive: false, isCurrentTab: false},
-    {name: "Summary", isActive: false, isCurrentTab: false},
-  ]
+    {id: 1, name: "Requester Info", isActive: false, isCurrentTab: false},
+    {id: 2, name: "Job Details", isActive: false, isCurrentTab: false},
+    {id: 3, name: "Recruitment Req's", isActive: false, isCurrentTab: false},
+    {id: 4, name: "Background Verification", isActive: false, isCurrentTab: false},
+    {id: 5, name: "Summary", isActive: false, isCurrentTab: false},
+  ];
+
+  setCurrentTab(id: number) {
+    this.headNavigator = this.headNavigator.map((item) => {
+      item.isCurrentTab = id === item.id;
+      
+      return item;
+    })
+  }
 
 }

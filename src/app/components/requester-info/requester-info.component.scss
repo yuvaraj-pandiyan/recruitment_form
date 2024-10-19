@@ -34,11 +34,6 @@
                 padding: 1px 5px;
             }
             
-            .valid-error {
-                outline-color: red;
-                border: 2px solid red !important;
-             }
-            
         }
         .warning-letter{
             display: flex;
@@ -88,28 +83,14 @@
 }
 
 .nextButton{
-    width: 90%;
     display: flex;
     justify-content: end;
-    button{
+
+    button {
         height: 35px;
         width: 150px;
-        background-color: rgb(2, 21, 82);
-        border-radius: 5px;
-        font-weight: 700;
-        color: white;
-
-        &:disabled {
-            background-color: grey;
-        }
     }
 }
-
-@media (min-width: 1200px){
-    .radio-group.radio{
-        margin-left: 70px;
-    }
-} 
 
 .noteBox{
     width: 80%;
@@ -123,4 +104,8 @@
     width: 100%;
     display: flex;
     justify-content: end;
+}
+.italic {
+    font-style: italic;
+    line-height: 2;
 }

@@ -1,5 +1,4 @@
 .reqruitmentRequest{
-    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -93,21 +92,4 @@
         background-color:rgba(3, 15, 128, 0.338);
          
      }
- }
-
-
- .nextButton{
-    width: 60%;
-    display: flex;
-    justify-content: end;
-    margin-bottom: 20PX;
-    button{
-        height: 30px;
-        width: 150px;
-        background-color:rgba(3, 38, 90, 0.911);
-        border: none;
-        color: white;
-        font-weight: 700;
-        border-radius: 3px;
-    }
  }

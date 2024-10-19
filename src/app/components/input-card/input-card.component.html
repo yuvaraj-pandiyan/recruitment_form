@@ -1,0 +1,26 @@
+<div class="chip-container">
+    <span class="title-text">{{ label }}</span>
+    <div class="chip-content">
+        <div class="input-container">
+            <mat-form-field class="chip-form-field">
+                <input
+                  [(ngModel)]="inputValue" [placeholder]="placeholder"
+                  [matChipInputFor]="chipGrid" (matChipInputTokenEnd)="addChip($event)"
+                />
+                <hr>
+                <mat-chip-grid #chipGrid aria-label="Enter reactive form keywords" [formControl]="formControl">
+                    <mat-chip-row *ngFor="let keyword of formControl.value" (removed)="removeKeyword(keyword)" [disableRipple]="true">
+                        {{keyword}}
+                        <button matChipRemove>
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-chip-row>
+                </mat-chip-grid>
+              </mat-form-field>
+        </div>
+        <button class="save-btn" [disabled]="!formControl.value?.length" (click)="saveChips()">Save</button>
+    </div>
+    <mat-chip-set class="saved-values">
+        <mat-chip *ngFor="let keyword of chipValues">{{keyword}}</mat-chip>
+    </mat-chip-set>
+</div>

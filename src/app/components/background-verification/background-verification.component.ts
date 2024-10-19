@@ -1,24 +1,32 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-background-verification',
   templateUrl: './background-verification.component.html',
   styleUrls: ['./background-verification.component.scss'],
 })
-export class BackgroundVerificationComponent {
+export class BackgroundVerificationComponent implements OnInit {
 
-  @Output() emitForm = new EventEmitter<FormGroup>();
+  @Output() backgroundVerificationFormGroupChange = new EventEmitter<FormGroup>();
   @Output() pageChange = new EventEmitter<boolean>();
-
-  backgroundVerification!: FormGroup;
+  @Input() backgroundVerificationFormGroup!: FormGroup;
 
   constructor(private fb: FormBuilder) {
-this.assignValueToMainForm();
+  }
+
+  ngOnInit(): void {
+    if (!this.backgroundVerificationFormGroup) {
+      this.assignValueToMainForm();
+    }
+    this.backgroundVerificationFormGroup.valueChanges.pipe(debounceTime(250)).subscribe(() => {
+      this.backgroundVerificationFormGroupChange.emit(this.backgroundVerificationFormGroup);
+    })
   }
 
   public assignValueToMainForm() {
-    this.backgroundVerification = this.fb.group({
+    this.backgroundVerificationFormGroup = this.fb.group({
       generalDetails: this.fb.group({
         applicantPaySlips: ['no'],
         applicantBankStatement: ['no'],
@@ -49,16 +57,11 @@ this.assignValueToMainForm();
     });
   }
 
-  ngOnInit(): void {    
-    this.backgroundVerification.valueChanges.subscribe(() => {
-      this.emitForm.emit(this.backgroundVerification);
-    })
-  }
-
   formDetails() {
-    console.log('det', this.backgroundVerification.value);
+    console.log('det', this.backgroundVerificationFormGroup.value);
   }
-  nextPage() {
-    this.pageChange.emit(true);
+  
+  goToPage(value: boolean) {
+    this.pageChange.emit(value);
   }
 }

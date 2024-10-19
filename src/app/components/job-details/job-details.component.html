@@ -1,1 +1,197 @@
-<p>job-details works!</p>
+<div class="container" [formGroup]="jobDetailsFormGroup">
+    <div class="announcement-tab">
+        <img src="../../../assets/file-icon.svg" alt="">
+        <p class="italic">
+            We would like to see a job analysis and specific responsibilities that the candidate would be responsible
+            for on a daily basis.
+        </p>
+    </div>
+    <div class="form-container">
+        <div class="inner-container">
+            <div class="input-field">
+                <label>Job Title<span>*</span></label>
+                <input
+                    [ngClass]="{'text-valid-error': jobDetailsFormGroup.controls['jobTitle'].invalid && (jobDetailsFormGroup.controls['jobTitle'].dirty || jobDetailsFormGroup.controls['jobTitle'].touched)}"
+                    type="text" maxlength="50" placeholder="Enter job title" formControlName="jobTitle">
+            </div>
+            <div class="warning-letter"
+                *ngIf="jobDetailsFormGroup.controls['jobTitle'].invalid && (jobDetailsFormGroup.controls['jobTitle'].dirty || jobDetailsFormGroup.controls['jobTitle'].touched)">
+                <small *ngIf="jobDetailsFormGroup.controls['jobTitle'].hasError('required')">Job title is required
+                    *.</small>
+                <small *ngIf="jobDetailsFormGroup.controls['jobTitle'].hasError('pattern')">Alphabets and Numbers
+                    only.</small>
+            </div>
+
+            <div class="input-field">
+                <label>Role type <span>*</span></label>
+                <mat-form-field class="width mat-form-field-with-arrow">
+                    <mat-select formControlName="roleType" placeholder="Select roles"
+                        [ngClass]="{'text-valid-error':  jobDetailsFormGroup.controls['roleType'].invalid && ( jobDetailsFormGroup.controls['roleType'].dirty ||  jobDetailsFormGroup.controls['roleType'].touched)}">
+                        <mat-option *ngFor="let item of roleTypeList" [value]="item.value">{{item.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="warning-letter"
+                *ngIf=" jobDetailsFormGroup.controls['roleType'].invalid && ( jobDetailsFormGroup.controls['roleType'].dirty ||  jobDetailsFormGroup.controls['roleType'].touched)">
+                <small *ngIf=" jobDetailsFormGroup.controls['roleType'].hasError('required')">Role type is required
+                    *.</small>
+            </div>
+
+            <div class="input-field">
+                <label>Seniority level <span>*</span></label>
+                <mat-form-field class="width mat-form-field-with-arrow">
+                    <mat-select formControlName="seniorityLevel" placeholder="Select seniority level"
+                        [ngClass]="{'text-valid-error':  jobDetailsFormGroup.controls['seniorityLevel'].invalid && ( jobDetailsFormGroup.controls['seniorityLevel'].dirty ||  jobDetailsFormGroup.controls['seniorityLevel'].touched)}">
+                        <mat-option *ngFor="let item of seniorityLevelList"
+                            [value]="item.value">{{item.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="warning-letter"
+                *ngIf=" jobDetailsFormGroup.controls['seniorityLevel'].invalid && ( jobDetailsFormGroup.controls['seniorityLevel'].dirty ||  jobDetailsFormGroup.controls['seniorityLevel'].touched)">
+                <small *ngIf=" jobDetailsFormGroup.controls['seniorityLevel'].hasError('required')">Seniority Level is
+                    required *.</small>
+            </div>
+
+            <div class="input-field">
+                <label>Ideal total work experience:<span>*</span></label>
+                <mat-form-field class="width mat-form-field-with-arrow">
+                    <mat-select formControlName="workExperience" placeholder="Select work exp"
+                        [ngClass]="{'text-valid-error': jobDetailsFormGroup.controls['workExperience'].invalid && (jobDetailsFormGroup.controls['workExperience'].dirty || jobDetailsFormGroup.controls['workExperience'].touched)}">
+                        <mat-option *ngFor="let item of workExperienceList"
+                            [value]="item.value">{{item.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="warning-letter"
+                *ngIf="jobDetailsFormGroup.controls['workExperience'].invalid && (jobDetailsFormGroup.controls['workExperience'].dirty || jobDetailsFormGroup.controls['workExperience'].touched)">
+                <small *ngIf="jobDetailsFormGroup.controls['workExperience'].hasError('required')">Ideal total work
+                    experience is
+                    required *.</small>
+            </div>
+
+            <div class="input-field">
+                <label>Required work experience in role:<span>*</span></label>
+                <mat-form-field class="width mat-form-field-with-arrow">
+                    <mat-select formControlName="relevantWorkExperience" placeholder="Select relevant exp"
+                        [ngClass]="{'text-valid-error': jobDetailsFormGroup.controls['relevantWorkExperience'].invalid && (jobDetailsFormGroup.controls['relevantWorkExperience'].dirty || jobDetailsFormGroup.controls['relevantWorkExperience'].touched)}">
+                        <mat-option *ngFor="let item of relevantWorkExperienceList"
+                            [value]="item.value">{{item.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="warning-letter"
+                *ngIf="jobDetailsFormGroup.controls['relevantWorkExperience'].invalid && (jobDetailsFormGroup.controls['relevantWorkExperience'].dirty || jobDetailsFormGroup.controls['relevantWorkExperience'].touched)">
+                <small *ngIf="jobDetailsFormGroup.controls['relevantWorkExperience'].hasError('required')">Required work
+                    experience in role
+                    is required *.</small>
+            </div>
+
+        </div>
+        <div class="inner-container">
+            <div class="input-field">
+                <label>Industry: <span>*</span></label>
+                <mat-form-field class="width mat-form-field-with-arrow">
+                    <mat-select formControlName="industry" placeholder="Select industry type"
+                        [ngClass]="{'text-valid-error': jobDetailsFormGroup.controls['industry'].invalid && (jobDetailsFormGroup.controls['industry'].dirty || jobDetailsFormGroup.controls['industry'].touched)}">
+                        <mat-option *ngFor="let item of industryList" [value]="item.value">{{item.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="warning-letter"
+                *ngIf="jobDetailsFormGroup.controls['industry'].invalid && (jobDetailsFormGroup.controls['industry'].dirty || jobDetailsFormGroup.controls['industry'].touched)">
+                <small *ngIf="jobDetailsFormGroup.controls['industry'].hasError('required')">Industry type is required
+                    *.</small>
+            </div>
+
+            <div class="input-field">
+                <label>Department: <span>*</span></label>
+                <mat-form-field class="width mat-form-field-with-arrow">
+                    <mat-select formControlName="department" placeholder="Select the department"
+                        [ngClass]="{'text-valid-error': jobDetailsFormGroup.controls['department'].invalid && (jobDetailsFormGroup.controls['department'].dirty || jobDetailsFormGroup.controls['department'].touched)}">
+                        <mat-option *ngFor="let item of departmentList" [value]="item.value">{{item.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="warning-letter"
+                *ngIf="jobDetailsFormGroup.controls['department'].invalid && (jobDetailsFormGroup.controls['department'].dirty || jobDetailsFormGroup.controls['department'].touched)">
+                <small *ngIf="jobDetailsFormGroup.controls['department'].hasError('required')">Department is required
+                    *.</small>
+            </div>
+
+
+            <div class="input-field">
+                <label>Sub Department: <span>*</span></label>
+                <mat-form-field class="width mat-form-field-with-arrow">
+                    <mat-select formControlName="subDepartment" placeholder="Select the department"
+                        [ngClass]="{'text-valid-error': jobDetailsFormGroup.controls['subDepartment'].invalid && (jobDetailsFormGroup.controls['subDepartment'].dirty || jobDetailsFormGroup.controls['subDepartment'].touched)}">
+                        <mat-option *ngFor="let item of departmentList" [value]="item.value">{{item.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="warning-letter"
+                *ngIf="jobDetailsFormGroup.controls['subDepartment'].invalid && (jobDetailsFormGroup.controls['subDepartment'].dirty || jobDetailsFormGroup.controls['subDepartment'].touched)">
+                <small *ngIf="jobDetailsFormGroup.controls['subDepartment'].hasError('required')">Sub Department is
+                    required
+                    *.</small>
+            </div>
+
+            <div class="input-field">
+                <label>No of positions: <span>*</span></label>
+                <mat-form-field class="width mat-form-field-with-arrow">
+                    <mat-select formControlName="noOfPositions" placeholder="Select No Of Positions"
+                        [ngClass]="{'text-valid-error': jobDetailsFormGroup.controls['noOfPositions'].invalid && (jobDetailsFormGroup.controls['noOfPositions'].dirty || jobDetailsFormGroup.controls['noOfPositions'].touched)}">
+                        <mat-option *ngFor="let item of noOfPositionsList"
+                            [value]="item.value">{{item.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="warning-letter"
+                *ngIf="jobDetailsFormGroup.controls['noOfPositions'].invalid && (jobDetailsFormGroup.controls['noOfPositions'].dirty || jobDetailsFormGroup.controls['noOfPositions'].touched)">
+                <small *ngIf="jobDetailsFormGroup.controls['noOfPositions'].hasError('required')">No of position is
+                    required
+                    *.</small>
+            </div>
+
+        </div>
+    </div>
+    <div class="card-container">
+        <app-input-card label="Technical Skills" placeholder="Add Technical Skills here"
+            [chipValues]="jobDetailsFormGroup.get('technicalSkills')?.value"
+            (chipValueChange)="jobDetailsFormGroup.get('technicalSkills')?.setValue($event)"></app-input-card>
+        <app-input-card label="Industry Knowledge and Skills" placeholder="Add Industry Knowledge and Skills here"
+            [chipValues]="jobDetailsFormGroup.get('industryKnowledgeAndSkills')?.value"
+            (chipValueChange)="jobDetailsFormGroup.get('industryKnowledgeAndSkills')?.setValue($event)"></app-input-card>
+        <app-input-card label="Software Knowledge" placeholder="Add Software Knowledge here"
+            [chipValues]="jobDetailsFormGroup.get('softwareKnowledge')?.value"
+            (chipValueChange)="jobDetailsFormGroup.get('softwareKnowledge')?.setValue($event)"></app-input-card>
+    </div>
+    <div class="form-container flex-column">
+        <div class="tooltip-wrap">
+            <p>Duties and expectations : </p>
+            <img src="../../../assets/info-icon.svg" alt="">
+        </div>
+        <div class="roles-array" formArrayName="roleAndResponsibilities">
+            <div class="icon-wrap" *ngFor="let item of roleAndResponsibility.controls; let i = index; let l = last">
+                <div class="input-field width-fit">
+                    <label>{{'Duties and expectations ' + (i+1) + ': '}}</label>
+                    <input type="text" maxlength="300" placeholder="Duties and expectations"
+                        [formControlName]="i">
+                </div>
+                <div class="icons" *ngIf="roleAndResponsibility.controls.length > 1" (click)="removeItem(i)">
+                    <img src="../../../assets/minus-icon.svg" alt="">
+                </div>
+                <div class="icons" *ngIf="l" (click)="addItem()">
+                    <img src="../../../assets/add-icon.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="action-container">
+        <button class="previous-btn" (click)="goToPage(false)">Previous</button>
+        <button [disabled]="jobDetailsFormGroup.invalid" (click)="goToPage(true)">Next</button>
+    </div>
+</div>

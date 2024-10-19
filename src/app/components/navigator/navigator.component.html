@@ -1,19 +1,14 @@
-<div>
-  <div [ngSwitch]="step">
-    <div *ngSwitchCase="1">
-      <app-requester-info (emitForm)="setFormValue($event)" (pageChange)="pageChange($event)"></app-requester-info>
-    </div>
-    <div *ngSwitchCase="2">
-      <app-job-details (emitForm)="setFormValue($event)" (pageChange)="pageChange($event)"></app-job-details>
-    </div>
-    <div  *ngSwitchCase="3">
-      <app-reqruitment-request (emitForm)="setFormValue($event)"  (pageChange)="pageChange($event)" ></app-reqruitment-request>
-    </div>
-    <div *ngSwitchCase="4">
-       <app-background-verification  (emitForm)="setFormValue($event)" (pageChange)="pageChange($event)"></app-background-verification>
-    </div>
-    <div *ngSwitchDefault>
-       <app-summary></app-summary>
-    </div>
-  </div>
+<div class="natvigator-container">
+  <app-header #header></app-header>
+  <ng-container [ngSwitch]="step">
+    <app-requester-info *ngSwitchCase="1" [requesterInfoFormGroup]="requesterInfoFormGroup"
+      (requesterInfoFormGroupChange)="requesterInfoFormGroup = $event" (pageChange)="pageChange($event)"></app-requester-info>
+    <app-job-details *ngSwitchCase="2" [jobDetailsFormGroup]="jobDetailsFormGroup"
+      (jobDetailsFormGroupChange)="jobDetailsFormGroup = $event" (pageChange)="pageChange($event)"></app-job-details>
+    <app-reqruitment-request *ngSwitchCase="3" [reqruitmentRequestFormGroup]="reqruitmentRequestFormGroup"
+      (reqruitmentRequestFormGroupChange)="reqruitmentRequestFormGroup = $event" (pageChange)="pageChange($event)"></app-reqruitment-request>
+    <app-background-verification *ngSwitchCase="4" [backgroundVerificationFormGroup]="backgroundVerificationFormGroup"
+      (backgroundVerificationFormGroupChange)="backgroundVerificationFormGroup = $event" (pageChange)="pageChange($event)"></app-background-verification>
+    <app-summary *ngSwitchDefault></app-summary>
+  </ng-container>
 </div>

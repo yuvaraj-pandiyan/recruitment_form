@@ -11,7 +11,7 @@
             should be authorized by the CEO prior to the start of the recruiting process. -->
         </p>
     </div>
-    <div [formGroup]="requesterInfoGroups">
+    <div [formGroup]="requesterInfoFormGroup">
         <span class="report-line-container">
             <div>
                 <label> Do you have a reporting line<span>*</span></label>
@@ -25,107 +25,107 @@
         <div class="inner-container">
             <div class="input-field">
                 <label>Requester First Name <span>*</span></label>
-                <input [ngClass]="{'valid-error': requesterInfoGroups.controls['requesterFullName'].invalid && (requesterInfoGroups.controls['requesterFullName'].dirty || requesterInfoGroups.controls['requesterFullName'].touched)}" type="text" placeholder="Enter first name" maxlength="30" formControlName="requesterFullName" required>
+                <input [ngClass]="{'valid-error': requesterInfoFormGroup.controls['requesterFullName'].invalid && (requesterInfoFormGroup.controls['requesterFullName'].dirty || requesterInfoFormGroup.controls['requesterFullName'].touched)}" type="text" placeholder="Enter first name" maxlength="30" formControlName="requesterFullName" required>
                 <div class="warning-letter"
-                    *ngIf="requesterInfoGroups.controls['requesterFullName'].invalid && (requesterInfoGroups.controls['requesterFullName'].dirty || requesterInfoGroups.controls['requesterFullName'].touched)">
-                    <small *ngIf="requesterInfoGroups.controls['requesterFullName'].hasError('required')">Requester First Name is required*.</small>
-                        <small *ngIf="requesterInfoGroups.controls['requesterFullName'].hasError('pattern')">Alphabets only.</small>
+                    *ngIf="requesterInfoFormGroup.controls['requesterFullName'].invalid && (requesterInfoFormGroup.controls['requesterFullName'].dirty || requesterInfoFormGroup.controls['requesterFullName'].touched)">
+                    <small *ngIf="requesterInfoFormGroup.controls['requesterFullName'].hasError('required')">Requester First Name is required*.</small>
+                        <small *ngIf="requesterInfoFormGroup.controls['requesterFullName'].hasError('pattern')">Alphabets only.</small>
                 </div>
             </div>
             <div class="input-field">
                 <label>Requester Last Name <span>*</span></label>
-                <input [ngClass]="{'valid-error': requesterInfoGroups.controls['requesterLastName'].invalid && (requesterInfoGroups.controls['requesterLastName'].dirty || requesterInfoGroups.controls['requesterLastName'].touched)}" type="text" placeholder="Enter last name" maxlength="30" formControlName="requesterLastName">
+                <input [ngClass]="{'valid-error': requesterInfoFormGroup.controls['requesterLastName'].invalid && (requesterInfoFormGroup.controls['requesterLastName'].dirty || requesterInfoFormGroup.controls['requesterLastName'].touched)}" type="text" placeholder="Enter last name" maxlength="30" formControlName="requesterLastName">
                 <div class="warning-letter"
-                    *ngIf="requesterInfoGroups.controls['requesterLastName'].invalid && (requesterInfoGroups.controls['requesterLastName'].dirty || requesterInfoGroups.controls['requesterLastName'].touched)">
-                    <small *ngIf="requesterInfoGroups.controls['requesterLastName'].hasError('required')">Requester Last
+                    *ngIf="requesterInfoFormGroup.controls['requesterLastName'].invalid && (requesterInfoFormGroup.controls['requesterLastName'].dirty || requesterInfoFormGroup.controls['requesterLastName'].touched)">
+                    <small *ngIf="requesterInfoFormGroup.controls['requesterLastName'].hasError('required')">Requester Last
                         Name is
                         required*.</small>
-                        <small *ngIf="requesterInfoGroups.controls['requesterLastName'].hasError('pattern')">Alphabets only.</small>
+                        <small *ngIf="requesterInfoFormGroup.controls['requesterLastName'].hasError('pattern')">Alphabets only.</small>
                 </div>
             </div>
             <div class="input-field">
                 <label>Requester Email<span>*</span></label>
-                <input [ngClass]="{'valid-error': requesterInfoGroups.controls['requesterEmail'].invalid && (requesterInfoGroups.controls['requesterEmail'].dirty || requesterInfoGroups.controls['requesterEmail'].touched)}" type="email" placeholder="Enter valid email id" maxlength="50" formControlName="requesterEmail">
+                <input [ngClass]="{'valid-error': requesterInfoFormGroup.controls['requesterEmail'].invalid && (requesterInfoFormGroup.controls['requesterEmail'].dirty || requesterInfoFormGroup.controls['requesterEmail'].touched)}" type="email" placeholder="Enter valid email id" maxlength="50" formControlName="requesterEmail">
                 <div class="warning-letter"
-                    *ngIf="requesterInfoGroups.controls['requesterEmail'].invalid && (requesterInfoGroups.controls['requesterEmail'].dirty || requesterInfoGroups.controls['requesterEmail'].touched)">
-                    <small *ngIf="requesterInfoGroups.controls['requesterEmail'].hasError('required')">Requester Email is
+                    *ngIf="requesterInfoFormGroup.controls['requesterEmail'].invalid && (requesterInfoFormGroup.controls['requesterEmail'].dirty || requesterInfoFormGroup.controls['requesterEmail'].touched)">
+                    <small *ngIf="requesterInfoFormGroup.controls['requesterEmail'].hasError('required')">Requester Email is
                         required*.</small>
-                    <small *ngIf="requesterInfoGroups.controls['requesterEmail'].hasError('email')">Invalid email
+                    <small *ngIf="requesterInfoFormGroup.controls['requesterEmail'].hasError('email')">Invalid email
                         format*.</small>
                 </div>
             </div>
             <div class="input-field">
                 <label>Requester Website Url <span>*</span></label>
-                <input [ngClass]="{'valid-error': requesterInfoGroups.controls['requesterWebUrl'].invalid && (requesterInfoGroups.controls['requesterWebUrl'].dirty || requesterInfoGroups.controls['requesterWebUrl'].touched)}" type="url" placeholder="Enter website url" maxlength="200" formControlName="requesterWebUrl">
+                <input [ngClass]="{'valid-error': requesterInfoFormGroup.controls['requesterWebUrl'].invalid && (requesterInfoFormGroup.controls['requesterWebUrl'].dirty || requesterInfoFormGroup.controls['requesterWebUrl'].touched)}" type="url" placeholder="Enter website url" maxlength="200" formControlName="requesterWebUrl">
                 <div class="warning-letter"
-                    *ngIf="requesterInfoGroups.controls['requesterWebUrl'].invalid && (requesterInfoGroups.controls['requesterWebUrl'].dirty || requesterInfoGroups.controls['requesterWebUrl'].touched)">
-                    <small *ngIf="requesterInfoGroups.controls['requesterWebUrl'].hasError('required')">Requester Website
+                    *ngIf="requesterInfoFormGroup.controls['requesterWebUrl'].invalid && (requesterInfoFormGroup.controls['requesterWebUrl'].dirty || requesterInfoFormGroup.controls['requesterWebUrl'].touched)">
+                    <small *ngIf="requesterInfoFormGroup.controls['requesterWebUrl'].hasError('required')">Requester Website
                         Url is
                         required*.</small>
-                    <small *ngIf="requesterInfoGroups.controls['requesterWebUrl'].hasError('pattern')">Invalid URL
+                    <small *ngIf="requesterInfoFormGroup.controls['requesterWebUrl'].hasError('pattern')">Invalid URL
                         format*.</small>
                 </div>
             </div>
             <div class="input-field">
                 <label>Requester Job Title<span>*</span></label>
-                <input [ngClass]="{'valid-error': requesterInfoGroups.controls['requesterJobTitle'].invalid && (requesterInfoGroups.controls['requesterJobTitle'].dirty || requesterInfoGroups.controls['requesterJobTitle'].touched)}" type="text" placeholder="Enter job title" maxlength="30" formControlName="requesterJobTitle">
+                <input [ngClass]="{'valid-error': requesterInfoFormGroup.controls['requesterJobTitle'].invalid && (requesterInfoFormGroup.controls['requesterJobTitle'].dirty || requesterInfoFormGroup.controls['requesterJobTitle'].touched)}" type="text" placeholder="Enter job title" maxlength="30" formControlName="requesterJobTitle">
                 <div class="warning-letter"
-                    *ngIf="requesterInfoGroups.controls['requesterJobTitle'].invalid && (requesterInfoGroups.controls['requesterJobTitle'].dirty || requesterInfoGroups.controls['requesterJobTitle'].touched)">
-                    <small *ngIf="requesterInfoGroups.controls['requesterJobTitle'].hasError('required')">Requester Job
+                    *ngIf="requesterInfoFormGroup.controls['requesterJobTitle'].invalid && (requesterInfoFormGroup.controls['requesterJobTitle'].dirty || requesterInfoFormGroup.controls['requesterJobTitle'].touched)">
+                    <small *ngIf="requesterInfoFormGroup.controls['requesterJobTitle'].hasError('required')">Requester Job
                         Title is
                         required*.</small>
-                        <small *ngIf="requesterInfoGroups.controls['requesterJobTitle'].hasError('pattern')">Alphabets and Numbers only.</small>
+                        <small *ngIf="requesterInfoFormGroup.controls['requesterJobTitle'].hasError('pattern')">Alphabets and Numbers only.</small>
                 </div>
             </div>
         </div>
-        <div *ngIf="requesterInfoGroups.controls['dontReportYes'].value" class="inner-container right">
+        <div *ngIf="requesterInfoFormGroup.controls['dontReportYes'].value" class="inner-container right">
             <div class="input-field">
                 <label>Your Manager's First Name <span>*</span></label>
-                <input [ngClass]="{'valid-error': requesterInfoGroups.controls['managerName'].invalid && (requesterInfoGroups.controls['managerName'].dirty || requesterInfoGroups.controls['managerName'].touched)}" type="text" placeholder="Enter your manager first name" maxlength="30" formControlName="managerName">
+                <input [ngClass]="{'valid-error': requesterInfoFormGroup.controls['managerName'].invalid && (requesterInfoFormGroup.controls['managerName'].dirty || requesterInfoFormGroup.controls['managerName'].touched)}" type="text" placeholder="Enter your manager first name" maxlength="30" formControlName="managerName">
                 <div class="warning-letter"
-                    *ngIf="requesterInfoGroups.controls['managerName'].invalid && (requesterInfoGroups.controls['managerName'].dirty || requesterInfoGroups.controls['managerName'].touched)">
-                    <small *ngIf="requesterInfoGroups.controls['managerName'].hasError('required')">Manager's First Name is required*.</small>
-                        <small *ngIf="requesterInfoGroups.controls['managerName'].hasError('pattern')">Alphabets only.</small>
+                    *ngIf="requesterInfoFormGroup.controls['managerName'].invalid && (requesterInfoFormGroup.controls['managerName'].dirty || requesterInfoFormGroup.controls['managerName'].touched)">
+                    <small *ngIf="requesterInfoFormGroup.controls['managerName'].hasError('required')">Manager's First Name is required*.</small>
+                        <small *ngIf="requesterInfoFormGroup.controls['managerName'].hasError('pattern')">Alphabets only.</small>
                 </div>
             </div>
             <div class="input-field">
                 <label>Your Manager's Last Name <span>*</span></label>
-                <input [ngClass]="{'valid-error': requesterInfoGroups.controls['managerLastName'].invalid && (requesterInfoGroups.controls['managerLastName'].dirty || requesterInfoGroups.controls['managerLastName'].touched)}" type="text" placeholder="Enter your manager last name" maxlength="30" formControlName="managerLastName">
+                <input [ngClass]="{'valid-error': requesterInfoFormGroup.controls['managerLastName'].invalid && (requesterInfoFormGroup.controls['managerLastName'].dirty || requesterInfoFormGroup.controls['managerLastName'].touched)}" type="text" placeholder="Enter your manager last name" maxlength="30" formControlName="managerLastName">
                 <div class="warning-letter"
-                    *ngIf="requesterInfoGroups.controls['managerLastName'].invalid && (requesterInfoGroups.controls['managerLastName'].dirty || requesterInfoGroups.controls['managerLastName'].touched)">
-                    <small *ngIf="requesterInfoGroups.controls['managerLastName'].hasError('required')">Manager's Last Name
+                    *ngIf="requesterInfoFormGroup.controls['managerLastName'].invalid && (requesterInfoFormGroup.controls['managerLastName'].dirty || requesterInfoFormGroup.controls['managerLastName'].touched)">
+                    <small *ngIf="requesterInfoFormGroup.controls['managerLastName'].hasError('required')">Manager's Last Name
                         is
                         required*.</small>
-                        <small *ngIf="requesterInfoGroups.controls['managerLastName'].hasError('pattern')">Alphabets only.</small>
+                        <small *ngIf="requesterInfoFormGroup.controls['managerLastName'].hasError('pattern')">Alphabets only.</small>
                 </div>
             </div>
             <div class="input-field">
                 <label>Your Manager's Email<span>*</span></label>
-                <input [ngClass]="{'valid-error': requesterInfoGroups.controls['managerEmail'].invalid && (requesterInfoGroups.controls['managerEmail'].dirty || requesterInfoGroups.controls['managerEmail'].touched)}" type="email" placeholder="Enter your manager valid email id" maxlength="50" formControlName="managerEmail">
+                <input [ngClass]="{'valid-error': requesterInfoFormGroup.controls['managerEmail'].invalid && (requesterInfoFormGroup.controls['managerEmail'].dirty || requesterInfoFormGroup.controls['managerEmail'].touched)}" type="email" placeholder="Enter your manager valid email id" maxlength="50" formControlName="managerEmail">
                 <div class="warning-letter"
-                    *ngIf="requesterInfoGroups.controls['managerEmail'].invalid && (requesterInfoGroups.controls['managerEmail'].dirty || requesterInfoGroups.controls['managerEmail'].touched)">
-                    <small *ngIf="requesterInfoGroups.controls['managerEmail'].hasError('required')">Manager's Email is
+                    *ngIf="requesterInfoFormGroup.controls['managerEmail'].invalid && (requesterInfoFormGroup.controls['managerEmail'].dirty || requesterInfoFormGroup.controls['managerEmail'].touched)">
+                    <small *ngIf="requesterInfoFormGroup.controls['managerEmail'].hasError('required')">Manager's Email is
                         required*.</small>
-                    <small *ngIf="!requesterInfoGroups.controls['managerEmail'].hasError('required') && (requesterInfoGroups.controls['managerEmail'].hasError('email') || requesterInfoGroups.controls['managerEmail'].hasError('invalidDomain'))">Invalid email
+                    <small *ngIf="!requesterInfoFormGroup.controls['managerEmail'].hasError('required') && (requesterInfoFormGroup.controls['managerEmail'].hasError('email') || requesterInfoFormGroup.controls['managerEmail'].hasError('invalidDomain'))">Invalid email
                         format*.</small>
-                        <small *ngIf="requesterInfoGroups.controls['managerEmail'].hasError('pattern')">Alphabets only.</small>
+                        <small *ngIf="requesterInfoFormGroup.controls['managerEmail'].hasError('pattern')">Alphabets only.</small>
                 </div>
             </div>
             <div class="input-field">
                 <label>Your Manager's Job Title<span>*</span></label>
-                <input [ngClass]="{'valid-error': requesterInfoGroups.controls['managerJobTitle'].invalid && (requesterInfoGroups.controls['managerJobTitle'].dirty || requesterInfoGroups.controls['managerJobTitle'].touched)}" type="text" placeholder="Enter your manager job title" maxlength="30" formControlName="managerJobTitle">
+                <input [ngClass]="{'valid-error': requesterInfoFormGroup.controls['managerJobTitle'].invalid && (requesterInfoFormGroup.controls['managerJobTitle'].dirty || requesterInfoFormGroup.controls['managerJobTitle'].touched)}" type="text" placeholder="Enter your manager job title" maxlength="30" formControlName="managerJobTitle">
                 <div class="warning-letter"
-                    *ngIf="requesterInfoGroups.controls['managerJobTitle'].invalid && (requesterInfoGroups.controls['managerJobTitle'].dirty || requesterInfoGroups.controls['managerJobTitle'].touched)">
-                    <small *ngIf="requesterInfoGroups.controls['managerJobTitle'].hasError('required')">Manager's Job Title
+                    *ngIf="requesterInfoFormGroup.controls['managerJobTitle'].invalid && (requesterInfoFormGroup.controls['managerJobTitle'].dirty || requesterInfoFormGroup.controls['managerJobTitle'].touched)">
+                    <small *ngIf="requesterInfoFormGroup.controls['managerJobTitle'].hasError('required')">Manager's Job Title
                         is
                         required*.</small>
-                        <small *ngIf="requesterInfoGroups.controls['managerJobTitle'].hasError('pattern')">Alphabets and Numbers only.</small>
+                        <small *ngIf="requesterInfoFormGroup.controls['managerJobTitle'].hasError('pattern')">Alphabets and Numbers only.</small>
                 </div>
             </div>
           </div>
         </div>
-        <div class="nextButton">
-            <button [disabled]="requesterInfoGroups.invalid" (click)="nextPage()" >Next</button>
+        <div class="action-container">
+            <button [disabled]="requesterInfoFormGroup.invalid" (click)="nextPage()" >Next</button>
         </div>
     </div>
 </div>

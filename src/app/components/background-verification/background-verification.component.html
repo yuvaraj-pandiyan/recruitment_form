@@ -2,7 +2,7 @@
     <div class="bgvHeader">
         <p>Background Verification - BGV</p>..........................................................................................................................................................................
     </div>
-    <form  class="bgvFormContant" [formGroup]="backgroundVerification" (ngSubmit)="formDetails()">
+    <form  class="bgvFormContant" [formGroup]="backgroundVerificationFormGroup" (ngSubmit)="formDetails()">
          <div class="bgvLeftForm" formGroupName="generalDetails">
             <div class="question">
                 <p>would you like to view & verify the payslips of an applicant ? </p>
@@ -195,9 +195,9 @@
             </div>
            </div>
         </div> 
-    </form>
-    <div class="nextButton">
-        <button>Previous</button>
-        <button (click)="formDetails()"> Submit</button>
-     </div>
+    </form>    
+    <div class="action-container">
+      <button class="previous-btn" (click)="goToPage(false)">Previous</button>
+      <button [disabled]="backgroundVerificationFormGroup.invalid" (click)="goToPage(true)">Next</button>
+  </div>
 </div>

@@ -1,7 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { common } from '../../constant';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-reqruitment-request',
@@ -10,33 +9,24 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class ReqruitmentRequestComponent implements OnInit {
   
-  reqruitmentRequestComponent !: FormGroup;
-  @Output() emitForm = new EventEmitter<FormGroup>();
+  @Input() reqruitmentRequestFormGroup!: FormGroup;
+  @Output() reqruitmentRequestFormGroupChange = new EventEmitter<FormGroup>();
   @Output() pageChange = new EventEmitter<boolean>();
 
-  
-
-  // genderAndAge!: FormGroup;
-  // maritalStatus!: FormGroup;
-  // physicalfitness!: FormGroup;
-  // internelMobility!: FormGroup;
-  // department!: FormGroup;
-  // industries!: FormGroup;
-  // companies!: FormGroup;
-  // products!: FormGroup;
-
-  constructor(private fb:FormBuilder,){
-    this.assignValueToMainForm()
+  constructor(private fb:FormBuilder){
   }
 
-  ngOnInit(): void {    
-    this.reqruitmentRequestComponent.valueChanges.subscribe(() => {
-      this.emitForm.emit(this.reqruitmentRequestComponent);
-    })
+  ngOnInit(): void {
+    if (!this.reqruitmentRequestFormGroup) {
+      this.assignValueToMainForm();
+    }
+    this.reqruitmentRequestFormGroup.valueChanges.pipe(debounceTime(250)).subscribe(() => {
+      this.reqruitmentRequestFormGroupChange.emit(this.reqruitmentRequestFormGroup);
+    });
   }
 
   public assignValueToMainForm() {
-    this.reqruitmentRequestComponent = this.fb.group({
+    this.reqruitmentRequestFormGroup = this.fb.group({
       genderAndAge: this.fb.group({ 
        genderVal:['no'],
        ageVal:['no'] 
@@ -72,9 +62,10 @@ export class ReqruitmentRequestComponent implements OnInit {
   }
 
   formDetails(){
-      console.log("det",this.reqruitmentRequestComponent.value);   
-  } 
-   nextPage() {
-    this.pageChange.emit(true);
+      console.log("det",this.reqruitmentRequestFormGroup.value);   
+  }
+
+  goToPage(value: boolean) {
+    this.pageChange.emit(value);
   }
 }

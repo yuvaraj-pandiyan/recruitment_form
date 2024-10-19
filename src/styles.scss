@@ -2,3 +2,42 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+button{
+    background-color: rgb(2, 21, 82);
+    border-radius: 5px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+
+    &:disabled {
+        pointer-events: none;
+        background-color: grey;
+    }
+}
+
+input {
+    outline-style: none;
+}
+    
+.valid-error {
+    border-color: red;
+    border: 2px solid red !important;
+}
+
+.action-container {
+    padding: 10px 0;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+
+    .previous-btn {
+        border: 1px solid #194775;
+        color: #194775;
+        background-color: transparent;
+    }
+
+    button {
+        width: 125px;
+        height: 30px;
+    }
+}

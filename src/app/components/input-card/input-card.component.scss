@@ -1,0 +1,80 @@
+.chip-container {
+    border: 1px solid #DDE2E4;
+    border-radius: 4px;
+    position: relative;
+
+    .title-text {
+        border: 1px solid #000;
+        border-radius: 8px;
+        padding: 10px 20px;
+        background: lightgray;
+        position: absolute;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 80%;
+        top: -20px;
+    }
+
+    .chip-content {
+        display: flex;
+        gap: 10px;
+        padding: 40px 10px 5px;
+        align-items: center;
+
+        .input-container {
+            width: 100%;
+
+            .chip-form-field {
+                width: 100%;
+
+                hr {
+                    margin: 0;
+                }
+            }
+        }
+
+        .save-btn {
+            width: fit-content;
+            height: fit-content;
+            padding: 5px 30px;
+        }
+    }
+}
+
+.saved-values {
+    padding: 10px;
+}
+
+:host ::ng-deep {
+    .mdc-evolution-chip-set__chips {
+        flex-wrap: nowrap;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .mat-mdc-chip-grid {
+        min-height: 20px;
+    }
+
+    .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+        background-color: #fff;
+        border: 2px solid gray;
+        border-radius: 5px;
+        height: 25px;
+    }
+
+    .mat-mdc-chip-row {
+        .mat-mdc-chip-focus-overlay {
+            opacity: 0;
+            background-color: #fff;
+        }
+    
+        button.mat-mdc-chip-remove {
+            padding: 0 5px;
+        }
+    }
+}
