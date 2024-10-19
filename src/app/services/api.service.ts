@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environment/environment';
 
 
@@ -8,6 +8,12 @@ import { environment } from 'src/environment/environment';
   providedIn: 'root'
 })
 export class ApiService {
+
+  changeStep$:Subject<number> = new Subject();
+
+  changeStep(id:number) {
+    this.changeStep$?.next(id);
+  }
 
   public BASE_URL = environment.BASE_URL;
   constructor(public http : HttpClient) { }

@@ -12,7 +12,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NavigatorComponent implements OnInit {
 
-  @ViewChild('header', { static: true }) header!: HeaderComponent;
   public step = 1;
   requesterInfoFormGroup!: FormGroup;
   jobDetailsFormGroup!: FormGroup;
@@ -26,7 +25,10 @@ export class NavigatorComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.header.setCurrentTab(this.step);
+    this.api.changeStep(this.step);
+  }
+  ngAfterViewInit(): void {
+  
   }
 
   pageChange(isNext: boolean) {
@@ -39,8 +41,7 @@ export class NavigatorComponent implements OnInit {
         this.step--;
       }
     }
-
-    this.header.setCurrentTab(this.step);
+    this.api.changeStep(this.step);
   }
 
   submit(){
@@ -62,7 +63,7 @@ export class NavigatorComponent implements OnInit {
 
     }
 
-    // this.saveForm(payload)
+    this.saveForm(payload)
   }
 
   saveForm(payload:object){
@@ -84,7 +85,8 @@ export class NavigatorComponent implements OnInit {
     this.recruitmentRequestFormGroup?.reset();
     this.backgroundVerificationFormGroup?.reset();
     this.step = 1; 
-    this.header.setCurrentTab(this.step); 
+    this.api.changeStep(this.step);
+
   }
 
   showTable(){
