@@ -1,14 +1,7 @@
 <!-- satheesh.. -->
 
 <div class="header">
-    <div class="headerLogo">
-        <div class="headerLeft">
-            <img src="../../../assets/hederLogo.svg" alt="" srcset=""> <h2>Recruitment Request Form.....</h2>
-        </div>
-        <div class="headerRight">
-            <img src="../../../assets/waymore-logo.svg" alt="" srcset="">
-        </div>
-    </div>
+   
     <ul class="formContainer">
         <li *ngFor="let heading of headNavigator; let i = index" [ngClass]="{ activePage: heading.isActive, currentPage: heading.isCurrentTab}">
             <div>
@@ -17,4 +10,5 @@
                 {{heading.name}}
         </li>
     </ul>
+    
 </div>

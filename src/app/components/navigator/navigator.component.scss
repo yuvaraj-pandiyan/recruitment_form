@@ -42,3 +42,48 @@
 .nav-contant::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
+.header {
+    padding-bottom: 35px;
+    .headerLogo {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 ;
+        color: #003366;
+
+        div {
+            display: flex;
+            &.headerLeft{
+                margin-left: 25px;
+                align-items: center;
+                gap: 20px;
+                h2{
+                    margin: 0;
+                    font-weight: 500;
+                    font-size: 25px;
+                }
+            }
+            &.headerRight{
+                img{
+                    width: 65%;
+                }
+            }
+        }
+
+    }}
+
+
+    
+.TableButton{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 20px;
+    button{
+        height: 35px;
+        width: 150px;
+        font-weight: 600;
+        border: none;
+        margin-left: 2px;
+    }
+}

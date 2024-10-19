@@ -8,13 +8,15 @@ import { HeaderComponent } from '../header/header.component';
   styleUrls: ['./navigator.component.scss']
 })
 export class NavigatorComponent implements OnInit {
+
   @ViewChild('header', { static: true }) header!: HeaderComponent;
   public step = 1;
   requesterInfoFormGroup!: FormGroup;
   jobDetailsFormGroup!: FormGroup;
   recruitmentRequestFormGroup !: FormGroup;
   backgroundVerificationFormGroup!: FormGroup;
-  
+  isTableOpen !: boolean;
+
   ngOnInit(): void {
     this.header.setCurrentTab(this.step);
   }
@@ -51,5 +53,9 @@ export class NavigatorComponent implements OnInit {
     }
 
     console.log(payload, "finalValue")
+  }
+
+  showTable(){
+    this.isTableOpen = !this.isTableOpen
   }
 }

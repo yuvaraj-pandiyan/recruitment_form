@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent {   
+
 
   public headNavigator = [
     {id: 1, name: "Requester Info", isActive: false, isCurrentTab: false},
@@ -18,9 +19,11 @@ export class HeaderComponent {
   setCurrentTab(id: number) {
     this.headNavigator = this.headNavigator.map((item) => {
       item.isCurrentTab = id === item.id;
-      
+      item.isActive = item.id < id; 
       return item;
-    })
+    });
   }
+
+  
 
 }

@@ -1,0 +1,30 @@
+<div>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search">
+    </mat-form-field>
+  
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>{{ column }}</th>
+        <td mat-cell *matCellDef="let element">
+          <ng-container *ngIf="column === 'action'; else regularColumn">
+            <button (click)="openDialog()" id="editBtn">                                
+              <mat-icon svgIcon="custom"></mat-icon>
+            </button>
+            <button (click)="deleteUser()" id="editBtn">
+              <mat-icon svgIcon="face"></mat-icon>
+            </button>
+          </ng-container>
+          <ng-template #regularColumn>
+            {{ element[column] }}
+          </ng-template>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+    <mat-paginator [pageSizeOptions]="pageSizeOptions" [pageSize]="selectedPageSize"></mat-paginator>
+  </div>
+  

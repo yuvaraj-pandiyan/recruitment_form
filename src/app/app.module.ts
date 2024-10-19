@@ -19,6 +19,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { InputCardComponent } from './components/input-card/input-card.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import { ApplicantDetailsComponent } from './components/applicant-details/applicant-details.component';
+import { MatInputModule } from '@angular/material/input';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { MatIconModule } from '@angular/material/icon';
     BackgroundVerificationComponent,
     SummaryComponent,
     RequesterInfoComponent,
-    InputCardComponent
+    InputCardComponent,
+    ApplicantDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +49,9 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatTableModule,
+    MatInputModule,
+    MatPaginatorModule,
     CommonModule
   ],
   providers: [
