@@ -1,6 +1,9 @@
 import { Component, OnInit, SimpleChange, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
+import { ApiService } from 'src/app/services/api.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-navigator',
@@ -17,6 +20,11 @@ export class NavigatorComponent implements OnInit {
   backgroundVerificationFormGroup!: FormGroup;
   isTableOpen !: boolean;
 
+
+  constructor(public api: ApiService, private toaster : ToastrService){
+
+  }
+  
   ngOnInit(): void {
     this.header.setCurrentTab(this.step);
   }
@@ -36,6 +44,8 @@ export class NavigatorComponent implements OnInit {
   }
 
   submit(){
+    this.toaster.success("Success");
+
     const payload ={
       requesterInfoFormGroup : {
         ...this.requesterInfoFormGroup?.value
@@ -52,7 +62,29 @@ export class NavigatorComponent implements OnInit {
 
     }
 
-    console.log(payload, "finalValue")
+    // this.saveForm(payload)
+  }
+
+  saveForm(payload:object){
+    this.api.saveForm(payload).subscribe({
+      next:(value:any)=>{
+        this.toaster.success("Success");
+        this.resetForms();
+      },
+      error:(err:HttpErrorResponse)=>{
+        this.toaster.error("Error");
+        console.error(err)
+      }
+    })
+  }
+
+  resetForms() {
+    this.requesterInfoFormGroup?.reset();
+    this.jobDetailsFormGroup?.reset();
+    this.recruitmentRequestFormGroup?.reset();
+    this.backgroundVerificationFormGroup?.reset();
+    this.step = 1; 
+    this.header.setCurrentTab(this.step); 
   }
 
   showTable(){

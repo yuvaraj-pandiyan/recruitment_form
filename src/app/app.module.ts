@@ -23,6 +23,9 @@ import {MatTableModule} from '@angular/material/table';
 import { ApplicantDetailsComponent } from './components/applicant-details/applicant-details.component';
 import { MatInputModule } from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { DeleteConfirmationPopupComponent } from './components/delete-confirmation-popup/delete-confirmation-popup.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     SummaryComponent,
     RequesterInfoComponent,
     InputCardComponent,
-    ApplicantDetailsComponent
+    ApplicantDetailsComponent,
+    DeleteConfirmationPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatTableModule,
     MatInputModule,
     MatPaginatorModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     {
