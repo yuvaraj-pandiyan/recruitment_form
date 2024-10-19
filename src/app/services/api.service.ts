@@ -28,6 +28,6 @@ export class ApiService {
     return this.http.put(`${this.BASE_URL}/form/details/${id}`, payload)
   }
   public getJobForm(id: string, payload:object): Observable<any> {
-    return this.http.put(`${this.BASE_URL}/form/details/${id}`, payload)
+    return this.http.put(`${this.BASE_URL}/form/details/${id}`, payload)       // form data by id 
   }
 }
