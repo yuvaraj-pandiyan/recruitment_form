@@ -1,17 +1,18 @@
 <div class="applicantDetails">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Search">
-    </mat-form-field>
+  <mat-form-field class="custom-form-field">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search">
+  </mat-form-field>
   
-    <table mat-table [dataSource]="dataSource" matSort class="applicantDetais">
+  
+    <table mat-table [dataSource]="dataSource" matSort class="applicantTableDetails">
       <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
         <th mat-header-cell mat-sort-header *matHeaderCellDef>{{ column }}</th>
         <td mat-cell *matCellDef="let element">
           <ng-container *ngIf="column === 'action'; else regularColumn">
-            <button (click)="openDialog()" id="editBtn">                                
+            <button (click)="editUserDetails()" id="editBtn">                                
              <img src="../../../assets/edit.svg" alt="" id="actionIcons">
             </button>
-            <button (click)="deleteUser()" id="editBtn">
+            <button (click)="openDialog()" id="editBtn">
               <img src="../../../assets/delete.svg" alt="" id="actionIcons">
             </button>
           </ng-container>

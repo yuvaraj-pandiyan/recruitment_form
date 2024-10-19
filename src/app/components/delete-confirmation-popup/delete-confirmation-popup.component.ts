@@ -15,6 +15,8 @@ export class DeleteConfirmationPopupComponent {
   ) {}
 
   onConfirm(): void {
+    console.log("data",this.data.id);
+    
   this.deleteForm(this.data?.id)
   }
 

@@ -9,14 +9,22 @@
 }
 
 .applicantDetails{
-    width: 80vw;
-   
+    width: 90vw;
 }
 
-.applicantDetais{
+.applicantTableDetails{
     border: 1px solid black;
+    width: 100%;
+    max-height: 500px;
+    overflow: auto;
     th{
         text-transform: capitalize;
-        font-weight: bold;
+        font-weight: bold;  
     }
 }
+
+
+  
+  .mat-column-name {
+    height: 100px;
+  }
