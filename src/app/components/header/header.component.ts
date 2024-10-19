@@ -17,7 +17,7 @@ export class HeaderComponent {
   }
 
   public headNavigator = [
-    {id: 1, name: "Requester Info", isActive: false, isCurrentTab: false},
+    {id: 1, name: "Requester Info", isActive: false, isCurrentTab: true},
     {id: 2, name: "Job Details", isActive: false, isCurrentTab: false},
     {id: 3, name: "Recruitment Req's", isActive: false, isCurrentTab: false},
     {id: 4, name: "Background Verification", isActive: false, isCurrentTab: false},

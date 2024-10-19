@@ -33,7 +33,7 @@ export class ApplicantDetailsComponent implements OnInit, AfterViewInit {
     { "id": "r8s9t0u1-v2w3-x4y5-z6a7-b8c9d0e1f2g3", "jobTitle": "Systems Analyst", "jobType": "Contract", "industry": "IT", "yearOfExperience": "4 years", "department": "IT" },
   ];
 
-  displayedColumns: string[] = ['jobTitle', 'jobType', 'industry', 'yearOfExperience', 'department'];
+  displayedColumns: string[] = ['jobTitle', 'jobType', 'industry', 'yearOfExperience', 'department', 'action'];
   dataSource = new MatTableDataSource();
   pageSizeOptions = [2, 10, 25];
   selectedPageSize = 5;

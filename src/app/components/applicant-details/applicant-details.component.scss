@@ -1,0 +1,22 @@
+#actionIcons{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+}
+#editBtn{
+    background-color: white;
+    border: none;
+}
+
+.applicantDetails{
+    width: 80vw;
+   
+}
+
+.applicantDetais{
+    border: 1px solid black;
+    th{
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+}
