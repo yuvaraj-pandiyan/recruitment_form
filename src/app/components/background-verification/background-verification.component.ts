@@ -57,11 +57,42 @@ export class BackgroundVerificationComponent implements OnInit {
     });
   }
 
-  formDetails() {
-    console.log('det', this.backgroundVerificationFormGroup.value);
-  }
+ 
   
   goToPage(value: boolean) {
+    console.log("4 th form : ",this.backgroundVerificationFormGroup);
+    
     this.pageChange.emit(value);
   }
 }
+
+// backgroundVerificationFormGroup {
+
+// ativityDetails: {
+//   applicantCriminalActivity: 'no', 
+//   applicantCyberSecurityActivity: 'no'
+// }
+// creditDetails: {
+//   applicantCreditScore: 'no', 
+//   applicantTotalLoans: 'no', 
+//   apllicantCreditCartInfo: 'no'
+// }
+// generalDetails: {
+//   applicantPaySlips: 'no',
+//   applicantBankStatement: 'no',
+//   applicantEducationBackground: 'no',
+//   applicantPrevManagerDet: 'no',
+//   applicantTotalExperience: 'no',
+//   applicantWorkedIndustry: 'no',
+//   applicantWorkedCompanyList: 'no',
+//   applicantWorkMode: 'no',
+//   applicantWorkedProduct: 'no',
+//   applicantCertificationDet: 'no',
+//   applicantProofOfResidency: 'no',
+//   applicantPassport: 'no',
+//   applicantId: 'no',
+//   applicantForignLang: 'no',
+//   applicantPostDegree: 'no',
+//   applicantDiploma: 'no',
+// }
+// }

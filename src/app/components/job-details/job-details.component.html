@@ -73,7 +73,7 @@
             </div>
 
             <div class="input-field">
-                <label>Required work experience in role:<span>*</span></label>
+                <label>Required work Exp in role:<span>*</span></label>
                 <mat-form-field class="width mat-form-field-with-arrow">
                     <mat-select formControlName="relevantWorkExperience" placeholder="Select relevant exp"
                         [ngClass]="{'text-valid-error': jobDetailsFormGroup.controls['relevantWorkExperience'].invalid && (jobDetailsFormGroup.controls['relevantWorkExperience'].dirty || jobDetailsFormGroup.controls['relevantWorkExperience'].touched)}">
@@ -112,7 +112,7 @@
                 <mat-form-field class="width mat-form-field-with-arrow">
                     <mat-select formControlName="department" placeholder="Select the department"
                         [ngClass]="{'text-valid-error': jobDetailsFormGroup.controls['department'].invalid && (jobDetailsFormGroup.controls['department'].dirty || jobDetailsFormGroup.controls['department'].touched)}">
-                        <mat-option *ngFor="let item of departmentList" [value]="item.value">{{item.name}}</mat-option>
+                        <mat-option *ngFor="let item of departmentList" [value]="item.value">{{item.name}}</mat-option> 
                     </mat-select>
                 </mat-form-field>
             </div>

@@ -1,6 +1,6 @@
 <div class="summary">
    <div class="summaryHeader">
-    <div (click)="check()">
+    <div (click)="openEditPageAsDialog()">
         <p>Requester Info</p>
         <img src="../../../assets/edit.svg" alt="Edit SVG">
     </div>
@@ -8,14 +8,20 @@
    </div>
     <div class="summaryContant">
        <div>
-        <label>Requester First Name : <label> Requester First Name</label> </label>
-        <label>Requester Last Name : <label> Requester Last Name </label> </label>
-        <label>Requester Email : <label> Requester Email </label> </label>
-        <label>Requester Website URL :  <label> Requester Website URL </label> </label>
-        <label>Requester Job Title :  <label> Requester Job Title </label> </label>
+        <p><strong>Requester First Name : </strong> {{ requesterInfoFormGroup.get('requesterFullName')?.value}}</p>
+        <p><strong>Requester Last Name : </strong>  {{ requesterInfoFormGroup.get('requesterLastName')?.value}} </p>
+        <p><strong>Requester Email : </strong> {{ requesterInfoFormGroup.get('requesterEmail')?.value}} </p>
+        <p><strong>Requester Website URL : </strong> {{ requesterInfoFormGroup.get('requesterWebUrl')?.value}}  </p>
+        <p><strong>Requester Job Title : </strong>  {{ requesterInfoFormGroup.get('requesterJobTitle')?.value}} </p>       
+        <ng-container  *ngIf="requesterInfoFormGroup.get('dontReportYes')?.value">
+          <p><strong>Your Manager's First Name : </strong> {{ requesterInfoFormGroup.get('managerName')?.value}} </p>
+          <p><strong>Your Manager's Last Name : </strong> {{ requesterInfoFormGroup.get('managerLastName')?.value}} </p>
+          <p><strong>Your Manager's Email : </strong> {{ requesterInfoFormGroup.get('managerEmail')?.value}} </p>
+          <p><strong>Your Manager's Job Title : </strong> {{ requesterInfoFormGroup.get('managerJobTitle')?.value}}</p> 
+        </ng-container>  
        </div>
     </div>
     <div class="submitButton">
-        <button>Submit</button>
+        <button (click)="submit()">Submit</button>
     </div>
 </div>

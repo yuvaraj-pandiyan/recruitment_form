@@ -125,7 +125,8 @@
           </div>
         </div>
         <div class="action-container">
-            <button [disabled]="requesterInfoFormGroup.invalid" (click)="nextPage()" >Next</button>
+            <button *ngIf="!opeanInPopUp" [disabled]="requesterInfoFormGroup.invalid" (click)="nextPage()" >Next</button>
+            <button *ngIf="opeanInPopUp" [disabled]="requesterInfoFormGroup.invalid" (click)="save()" >save</button>
         </div>
     </div>
 </div>

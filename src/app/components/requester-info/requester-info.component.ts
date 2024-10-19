@@ -14,10 +14,12 @@ export class RequesterInfoComponent implements OnInit, OnChanges {
   @Input() requesterInfoFormGroup!: FormGroup;
   @Output() requesterInfoFormGroupChange = new EventEmitter<FormGroup>();
   @Output() pageChange = new EventEmitter<boolean>();
+  public opeanInPopUp:boolean =false
 
   constructor(private fb:FormBuilder, public dialogRef: MatDialogRef<RequesterInfoComponent>, @Inject(MAT_DIALOG_DATA)public inputDialogData:any ) {
 
-    if(inputDialogData){
+    if(Object?.keys(inputDialogData||{})?.length){
+      this.opeanInPopUp=true;
       this.requesterInfoFormGroup = inputDialogData;
     }
   }  
@@ -97,6 +99,33 @@ export class RequesterInfoComponent implements OnInit, OnChanges {
   }
 
   nextPage() {
+
+    // if (!this.requesterInfoFormGroup.get('dontReportYes')?.value === true) {
+    //   this.requesterInfoFormGroup.get('managerName')?.setValue('');
+    //   this.requesterInfoFormGroup.get('managerLastName')?.setValue('');
+    //   this.requesterInfoFormGroup.get('managerJobTitle')?.setValue('');
+    //   this.requesterInfoFormGroup.get('managerEmail')?.setValue('');
+    // }
+   
+    console.log("Requeste Info 1ST page : ", this.requesterInfoFormGroup);
     this.pageChange.emit(true);
   }
+
+  save(){
+   this.dialogRef.close();
+  }
 }
+
+// requesterInfoFormGroup{
+//     dontReportNo: false
+//     dontReportYes: true
+//     managerEmail: "mail"
+//     managerJobTitle: ""
+//     managerLastName: ""
+//     managerName: ""
+//     requesterEmail: "mail"
+//     requesterFullName: ""
+//     requesterJobTitle: ""
+//     requesterLastName: ""
+//     requesterWebUrl: "websiteURL"
+// }

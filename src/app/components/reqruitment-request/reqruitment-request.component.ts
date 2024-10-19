@@ -9,24 +9,24 @@ import { debounceTime } from 'rxjs';
 })
 export class ReqruitmentRequestComponent implements OnInit {
   
-  @Input() reqruitmentRequestFormGroup!: FormGroup;
-  @Output() reqruitmentRequestFormGroupChange = new EventEmitter<FormGroup>();
+  @Input() recruitmentRequestFormGroup!: FormGroup;
+  @Output() recruitmentRequestFormGroupChange = new EventEmitter<FormGroup>();
   @Output() pageChange = new EventEmitter<boolean>();
 
   constructor(private fb:FormBuilder){
   }
 
   ngOnInit(): void {
-    if (!this.reqruitmentRequestFormGroup) {
+    if (!this.recruitmentRequestFormGroup) {
       this.assignValueToMainForm();
     }
-    this.reqruitmentRequestFormGroup.valueChanges.pipe(debounceTime(250)).subscribe(() => {
-      this.reqruitmentRequestFormGroupChange.emit(this.reqruitmentRequestFormGroup);
+    this.recruitmentRequestFormGroup.valueChanges.pipe(debounceTime(250)).subscribe(() => {
+      this.recruitmentRequestFormGroupChange.emit(this.recruitmentRequestFormGroup);
     });
   }
 
   public assignValueToMainForm() {
-    this.reqruitmentRequestFormGroup = this.fb.group({
+    this.recruitmentRequestFormGroup = this.fb.group({
       genderAndAge: this.fb.group({ 
        genderVal:['no'],
        ageVal:['no'] 
@@ -61,11 +61,20 @@ export class ReqruitmentRequestComponent implements OnInit {
     });
   }
 
-  formDetails(){
-      console.log("det",this.reqruitmentRequestFormGroup.value);   
-  }
 
   goToPage(value: boolean) {
+    console.log("Third Form : ",this.recruitmentRequestFormGroup);   
     this.pageChange.emit(value);
   }
 }
+
+// recruitmentRequestFormGroup{
+// companies: {workedCompany: 'no', currentCompany: 'no'}
+// department: {workedPreviosly: 'no', workedEarly: 'no'}
+// genderAndAge: {genderVal: 'no', ageVal: 'no'}
+// industries: {specifyIndustry: 'no'}
+// internelMobility: {criticalVal: 'no', openPositioVal: 'no', coverdPosVal: 'no'}
+// maritalStatus: {maritalStatusVal: 'no'}
+// physicalfitness: {massVal: 'no', physicalConVal: 'no'}
+// products: {specifyProduct: 'no'}
+// }

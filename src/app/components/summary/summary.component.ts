@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RequesterInfoComponent }from '../requester-info/requester-info.component'
 import { FormGroup } from '@angular/forms';
@@ -10,11 +10,15 @@ import { FormGroup } from '@angular/forms';
 export class SummaryComponent {
 
   @Input()requesterInfoFormGroup!:FormGroup
-  constructor(private dialog:MatDialog){}
+  @Output() submitEmmiter = new EventEmitter<boolean>();
 
-   check(){
+  constructor(private dialog:MatDialog){
+    this.showDet()
+  }
+
+  openEditPageAsDialog(){
     const dialogRef = this.dialog.open(RequesterInfoComponent,{
-      width:'100vw',
+     
       disableClose: false,
       data :this.requesterInfoFormGroup
     });
@@ -22,5 +26,13 @@ export class SummaryComponent {
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('Dialog was closed', result);
     });
+  }
+
+  showDet(){
+    console.log("det",this.requesterInfoFormGroup);
+    
+  }
+  submit(){
+    this.submitEmmiter.emit(true);
   }
 }

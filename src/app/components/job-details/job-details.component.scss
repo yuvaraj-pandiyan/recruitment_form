@@ -12,13 +12,24 @@
     line-height: 2;
     margin-left: 1.5rem;
 }
+.container{
+    width: 74vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.inner-container{
+    width: 100%;
+}
 
 .form-container{
+    width: 99%;
     display: flex;
     margin: 25px 0 0;
     padding-bottom: 20px;
     border-bottom: 1px dotted #DDE2E4;
-
     &.flex-column {
         flex-direction: column;
     }
@@ -50,7 +61,7 @@
         label{
             display: flex;
             align-items: center;
-            justify-content: right;
+            justify-content: left;
             margin-right: 10px;
             font-weight: 700;
             font-size: 14px;
@@ -115,6 +126,7 @@
 }
 
 .card-container {
+    width: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px 40px;

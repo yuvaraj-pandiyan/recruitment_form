@@ -1,4 +1,5 @@
 .reqruitmentRequest{
+    width: 77vw;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -7,7 +8,7 @@
 
 .reqruitmentRequestHeader{
     height: 50px;
-    width: 55%;
+    width: 75%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -22,7 +23,7 @@
 }
 
 .requestFormContant{
-    width: 60%;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;

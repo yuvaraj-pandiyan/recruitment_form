@@ -1,5 +1,5 @@
 .BGV{
-    width: 100vw;
+    width: 97vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,11 +7,12 @@
 }
 
 .bgvHeader{
-    width: 60%;
+    width: 90%;
     display: flex;
     align-items: center;
+    justify-content: center;
     font-weight: 500;
-    P{
+    p{
         background-color: rgba(74, 216, 74, 0.453);
         padding: 6px 10px;
         margin: 0%;
@@ -22,7 +23,7 @@
 }
 
 .bgvFormContant{
-    width: 65%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
     margin-top: 20px;

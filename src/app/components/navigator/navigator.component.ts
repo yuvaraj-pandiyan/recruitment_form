@@ -12,7 +12,7 @@ export class NavigatorComponent implements OnInit {
   public step = 1;
   requesterInfoFormGroup!: FormGroup;
   jobDetailsFormGroup!: FormGroup;
-  reqruitmentRequestFormGroup !: FormGroup;
+  recruitmentRequestFormGroup !: FormGroup;
   backgroundVerificationFormGroup!: FormGroup;
   
   ngOnInit(): void {
@@ -31,5 +31,25 @@ export class NavigatorComponent implements OnInit {
     }
 
     this.header.setCurrentTab(this.step);
+  }
+
+  submit(){
+    const payload ={
+      requesterInfoFormGroup : {
+        ...this.requesterInfoFormGroup?.value
+      },
+      jobDetailsFormGroup:{
+        ...this.jobDetailsFormGroup?.value
+      },
+      recruitmentRequestFormGroup:{
+        ...this.recruitmentRequestFormGroup?.value
+      },
+      backgroundVerificationFormGroup :{
+        ...this.backgroundVerificationFormGroup?.value
+      }
+
+    }
+
+    console.log(payload, "finalValue")
   }
 }

@@ -7,8 +7,7 @@
     </p>
   </div>
   <form
-    [formGroup]="reqruitmentRequestFormGroup"
-    (ngSubmit)="formDetails()"
+    [formGroup]="recruitmentRequestFormGroup" 
     class="requestFormContant"
   >
     <div class="reqFormLeft">
@@ -167,6 +166,6 @@
   </form>
   <div class="action-container">
       <button class="previous-btn" (click)="goToPage(false)">Previous</button>
-      <button [disabled]="reqruitmentRequestFormGroup.invalid" (click)="goToPage(true)">Next</button>
+      <button [disabled]="recruitmentRequestFormGroup.invalid" (click)="goToPage(true)">Next</button>
   </div>
 </div>

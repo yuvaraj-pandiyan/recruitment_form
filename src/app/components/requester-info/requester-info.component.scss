@@ -1,10 +1,16 @@
 .requesterInfo{
-    margin: 30px;
+    margin: 30px 0 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .form-container{
-    display: grid;
+    width: 97%;
+    display: grid;  
     margin: 25px 0 0;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    grid-template-columns: repeat(2, minmax(300px,1fr));
     .inner-container{
         max-width: 600px;
         .input-field{
@@ -21,7 +27,8 @@
                 font-size: 14px;
                 line-height: 20px;
                 justify-content: flex-end;
-                // color: rgb(3, 24, 82);
+                width: 190px;
+                // border: 1px solid black;
                 span{
                     color:red;
                     padding-left: 5px;

@@ -1,14 +1,25 @@
 <div class="natvigator-container">
   <app-header #header></app-header>
-  <ng-container [ngSwitch]="step">
-    <app-requester-info *ngSwitchCase="1" [requesterInfoFormGroup]="requesterInfoFormGroup"
-      (requesterInfoFormGroupChange)="requesterInfoFormGroup = $event" (pageChange)="pageChange($event)"></app-requester-info>
-    <app-job-details *ngSwitchCase="2" [jobDetailsFormGroup]="jobDetailsFormGroup"
-      (jobDetailsFormGroupChange)="jobDetailsFormGroup = $event" (pageChange)="pageChange($event)"></app-job-details>
-    <app-reqruitment-request *ngSwitchCase="3" [reqruitmentRequestFormGroup]="reqruitmentRequestFormGroup"
-      (reqruitmentRequestFormGroupChange)="reqruitmentRequestFormGroup = $event" (pageChange)="pageChange($event)"></app-reqruitment-request>
-    <app-background-verification *ngSwitchCase="4" [backgroundVerificationFormGroup]="backgroundVerificationFormGroup"
-      (backgroundVerificationFormGroupChange)="backgroundVerificationFormGroup = $event" (pageChange)="pageChange($event)"></app-background-verification>
-    <app-summary *ngSwitchDefault [requesterInfoFormGroup]="requesterInfoFormGroup"></app-summary>
-  </ng-container>
+  <div class="nav-contant">
+    <ng-container [ngSwitch]="step">
+
+      <app-requester-info *ngSwitchCase="1" [requesterInfoFormGroup]="requesterInfoFormGroup"
+        (requesterInfoFormGroupChange)="requesterInfoFormGroup = $event" (pageChange)="pageChange($event)">
+      </app-requester-info>
+  
+      <app-job-details *ngSwitchCase="2" [jobDetailsFormGroup]="jobDetailsFormGroup"
+        (jobDetailsFormGroupChange)="jobDetailsFormGroup = $event" (pageChange)="pageChange($event)">
+      </app-job-details>
+  
+      <app-reqruitment-request *ngSwitchCase="3" [recruitmentRequestFormGroup]="recruitmentRequestFormGroup"
+        (recruitmentRequestFormGroupChange)="recruitmentRequestFormGroup = $event" (pageChange)="pageChange($event)">
+      </app-reqruitment-request>
+  
+      <app-background-verification *ngSwitchCase="4" [backgroundVerificationFormGroup]="backgroundVerificationFormGroup"
+        (backgroundVerificationFormGroupChange)="backgroundVerificationFormGroup = $event" (pageChange)="pageChange($event)">
+      </app-background-verification>
+  
+      <app-summary *ngSwitchDefault [requesterInfoFormGroup]="requesterInfoFormGroup" (submitEmmiter)="submit()"></app-summary>
+    </ng-container>
+  </div>
 </div>

@@ -71,6 +71,23 @@ export class JobDetailsComponent implements OnInit {
   }
 
   goToPage(value: boolean) {
+    console.log("second Value ",this.jobDetailsFormGroup);   
     this.pageChange.emit(value);
   }
 }
+
+// jobDetailsFormGroup{
+//   department:"Role 2"
+//   industry:"Role 3"
+//   jobTitle: "ghgfh"
+//   noOfPositions:"Role 2"
+//   relevantWorkExperience:"Role 2"
+//   workExperience: "Role 1"
+//   roleType: "Role 2"
+//   seniorityLevel: "Role 2"
+//   subDepartment: "Role 2"
+//   softwareKnowledge: ['fghfgh']
+//   roleAndResponsibilities:['jkhggfh']
+//   industryKnowledgeAndSkills:['gdhdg']
+//   technicalSkills: ['fdgd']
+// }
