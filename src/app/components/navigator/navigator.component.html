@@ -9,6 +9,6 @@
       (reqruitmentRequestFormGroupChange)="reqruitmentRequestFormGroup = $event" (pageChange)="pageChange($event)"></app-reqruitment-request>
     <app-background-verification *ngSwitchCase="4" [backgroundVerificationFormGroup]="backgroundVerificationFormGroup"
       (backgroundVerificationFormGroupChange)="backgroundVerificationFormGroup = $event" (pageChange)="pageChange($event)"></app-background-verification>
-    <app-summary *ngSwitchDefault></app-summary>
+    <app-summary *ngSwitchDefault [requesterInfoFormGroup]="requesterInfoFormGroup"></app-summary>
   </ng-container>
 </div>

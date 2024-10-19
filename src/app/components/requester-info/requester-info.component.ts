@@ -1,7 +1,7 @@
-import { Component,EventEmitter,Input,OnChanges,OnInit,Output, SimpleChanges } from '@angular/core';
+import { Component,EventEmitter,Inject,Input,OnChanges,OnInit,Output, SimpleChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { common } from '../../constant';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { debounceTime } from 'rxjs';
 @Component({
   selector: 'app-requester-info',
@@ -15,7 +15,11 @@ export class RequesterInfoComponent implements OnInit, OnChanges {
   @Output() requesterInfoFormGroupChange = new EventEmitter<FormGroup>();
   @Output() pageChange = new EventEmitter<boolean>();
 
-  constructor(private fb:FormBuilder, public dialogRef: MatDialogRef<RequesterInfoComponent>) {
+  constructor(private fb:FormBuilder, public dialogRef: MatDialogRef<RequesterInfoComponent>, @Inject(MAT_DIALOG_DATA)public inputDialogData:any ) {
+
+    if(inputDialogData){
+      this.requesterInfoFormGroup = inputDialogData;
+    }
   }  
 
   onClose(): void {

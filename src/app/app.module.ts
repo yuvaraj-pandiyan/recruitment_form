@@ -11,7 +11,7 @@ import { JobDetailsComponent } from './components/job-details/job-details.compon
 import { ReqruitmentRequestComponent } from './components/reqruitment-request/reqruitment-request.component';
 import { BackgroundVerificationComponent } from './components/background-verification/background-verification.component';
 import { SummaryComponent } from './components/summary/summary.component';
-import { MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { RequesterInfoComponent } from './components/requester-info/requester-info.component';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -50,7 +50,8 @@ import { MatIconModule } from '@angular/material/icon';
     {
       provide: MatDialogRef,
       useValue: {}
-    }
+    },
+    { provide: MAT_DIALOG_DATA, useValue: {} }
 	],
 
   bootstrap: [AppComponent]
