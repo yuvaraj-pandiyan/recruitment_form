@@ -3,6 +3,7 @@
     width: 100%;
 }
 
+
 .natvigator-container{
     display: flex;
     flex-direction: column;
@@ -11,20 +12,19 @@
 }
 
 .nav-contant {
-    height: 69vh;
+    height: 75vh;
     width: 98vw;
-    overflow-y: auto;
+    overflow-y: scroll;
+    overflow-x: auto;
     padding: 10px;
-    // background-color: #f9f9f9;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    // padding: 100px 0 0 0;
 }
 
 .nav-contant::-webkit-scrollbar {
-    width: 5px; 
+    width: 3px; 
 }
 
 .nav-contant::-webkit-scrollbar-track {
@@ -43,8 +43,10 @@
     background: #555; 
 }
 .header {
+    width: 100%;
     padding-bottom: 35px;
     .headerLogo {
+        width: 115%;
         display: flex;
         justify-content: space-between;
         padding: 0 ;

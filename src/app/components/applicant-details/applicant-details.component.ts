@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -17,14 +17,17 @@ export class ApplicantDetailsComponent implements OnInit, AfterViewInit {
 
   }
 
+  @Input() isEdit !: boolean;
+  @Output() openEditPage = new EventEmitter<boolean>();
+  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  selectedUserId !:string;
   tempData : any;
-
   displayedColumns: string[] = ['jobTitle', 'jobType', 'industry', 'yearOfExperience', 'department', 'action'];
   dataSource = new MatTableDataSource();
-  pageSizeOptions = [2,5,8,25];
+  pageSizeOptions = [5,10,15,25];
   selectedPageSize = 5;
 
   ngOnInit() {
@@ -41,33 +44,28 @@ export class ApplicantDetailsComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  editUserDetails() {
+  editUserDetails(value :  boolean) {
+    this.openEditPage.emit(value)
     
   }
 
-  openDialog(): void {
+  openDialog(selectedData : any): void {
     const dialogRef = this.dialog.open(DeleteConfirmationPopupComponent,{
-      data: { id:  this.dataSource.data } 
-     
-      
-    },); console.log("c c",this.data);
+        data:{value:selectedData}
+    });
+    this.selectedUserId = selectedData 
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      console.log('The dialog was closed', result);
+      this.fetchTableData()
     }); 
   }
-
-  data = { name :'satheesh',email:'satheesh@3gmail.com'}
 
  
   private fetchTableData(): void {
     this.apiServices.getTableData().subscribe({
       next: (data) => {
-      this.tempData = data 
-      console.log(this.tempData,"temp Data");
-      
+      this.tempData = data       
       this.dataSource.data = this.tempData.data
-      console.log(this.dataSource.data,"hsfdh");
       
       },
       error: (error) => {

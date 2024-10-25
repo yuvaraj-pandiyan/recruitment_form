@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { MatChipEvent, MatChipInputEvent } from '@angular/material/chips';
 
 @Component({
@@ -7,33 +7,71 @@ import { MatChipEvent, MatChipInputEvent } from '@angular/material/chips';
   templateUrl: './input-card.component.html',
   styleUrls: ['./input-card.component.scss']
 })
-export class InputCardComponent implements OnInit {
+export class InputCardComponent implements OnInit, OnChanges {
   @Input() label!: string;
   @Input() placeholder!: string;
-  @Input() chipValues: string[] = [];
-  @Output() chipValueChange = new EventEmitter<string[]>();
-  formControl = new FormControl([]);
-  inputValue!: string;
+  @Input() applyColor!: boolean;
   
+  @Input() chipValues: any[] = [];
+  @Output() chipValueChange = new EventEmitter<any[]>();
+  formGroup: FormGroup = new FormGroup({
+    chipArray: new FormArray<any>([])
+  });
+  inputValue: string = '';
+
+  get chipArray(): FormArray<any> {
+    const array = this.formGroup.get('chipArray') as any;
+    if (array) {
+      return array;
+    } else {
+      return new FormArray<any>([])
+    }
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    if (Object.keys(changes).includes('chipValues')) {
+      this.chipValues = (this.chipValues || [])?.map(value => ({
+        color: this.generateColor(), value
+      }));
+    }
+  }
+
   ngOnInit(): void {
-
   }
 
-  addChip(value: MatChipInputEvent) {
-    const existingValue: any = this.formControl.value || [];
-    const newValue: never[] = existingValue.concat([value.value.trim()]);
-    this.formControl.setValue(newValue);
-    this.inputValue = '';
+  setInputValue(event: any) {
+    this.inputValue = event?.target?.value || '';
   }
 
-  removeKeyword(keyword: MatChipEvent) {
-    const existingValue = this.formControl.value || [];
-    this.formControl.setValue(existingValue.filter(x => x !== keyword));
+  addChip() {
+    
+    if (this.inputValue.trim()) {
+      this.chipArray.push(new FormControl({color: this.generateColor(), value: this.inputValue.trim()}))
+      this.inputValue = '';
+    }
+  }
+
+  removeKeyword(keyword: any) {
+    const index = (this.chipArray?.getRawValue() || [])?.findIndex((x) => x.value === keyword.value);
+    if (index !== -1) {
+      this.chipArray.removeAt(index);
+    }
   }
 
   saveChips() {
-    this.chipValues = (this.formControl.value || []) as string[];
-    this.formControl.setValue([]);
-    this.chipValueChange.emit(this.chipValues);
+    this.chipValues = JSON.parse(JSON.stringify(this.chipArray?.value || []));
+    this.chipValueChange.emit(this.chipValues.map(x => x.value));
+    // this.formGroup.reset();
+    this.chipArray.clear();
+    this.inputValue = ''
+  }
+
+  generateColor(): string {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color + '40';
   }
 }

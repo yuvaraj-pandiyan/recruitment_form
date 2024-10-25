@@ -2,47 +2,78 @@
   <div class="header">
     <div class="headerLogo">
       <div class="headerLeft">
-          <img src="../../../assets/hederLogo.svg" alt="" srcset=""> <h2>Recruitment Request Form.....</h2>
+        <img src="../../../assets/hederLogo.svg" alt="" srcset="" />
+        <h2>Recruitment Request Form.....</h2>
       </div>
       <div class="headerRight">
-          <img src="../../../assets/waymore-logo.svg" alt="" srcset="">
+        <img src="../../../assets/waymore-logo.svg" alt="" srcset="" />
       </div>
-  </div>
+    </div>
   </div>
 
   <div class="TableButton">
-    <button *ngIf="!isTableOpen" (click)="showTable()">View Table</button>
-    <button *ngIf="isTableOpen" (click)="showTable()">Close Table</button>
-</div>
-
-  
-  <div class="nav-contant" *ngIf="!isTableOpen else table">
-
-    <app-header ></app-header> 
-
-    
-    <ng-container [ngSwitch]="step" >
-
-      <app-requester-info *ngSwitchCase="1" [requesterInfoFormGroup]="requesterInfoFormGroup"
-        (requesterInfoFormGroupChange)="requesterInfoFormGroup = $event" (pageChange)="pageChange($event)">
-      </app-requester-info>
-  
-      <app-job-details *ngSwitchCase="2" [jobDetailsFormGroup]="jobDetailsFormGroup"
-        (jobDetailsFormGroupChange)="jobDetailsFormGroup = $event" (pageChange)="pageChange($event)">
-      </app-job-details>
-  
-      <app-reqruitment-request *ngSwitchCase="3" [recruitmentRequestFormGroup]="recruitmentRequestFormGroup"
-        (recruitmentRequestFormGroupChange)="recruitmentRequestFormGroup = $event" (pageChange)="pageChange($event)">
-      </app-reqruitment-request>
-  
-      <app-background-verification *ngSwitchCase="4" [backgroundVerificationFormGroup]="backgroundVerificationFormGroup"
-        (backgroundVerificationFormGroupChange)="backgroundVerificationFormGroup = $event" (pageChange)="pageChange($event)">
-      </app-background-verification>
-  
-      <app-summary *ngSwitchDefault [requesterInfoFormGroup]="requesterInfoFormGroup" (submitEmmiter)="submit()"></app-summary>
-    </ng-container>
+    <button *ngIf="!isTableOpen" (click)="cancel()">
+      {{ isEdit ? "Cancel" : "Reset" }}
+    </button>
+    <button [disabled]="isEdit" (click)="showTable()">
+      {{ isTableOpen ? "Close Table" : "View Table" }}
+    </button>
   </div>
+
+  <div class="nav-contant" *ngIf="!isTableOpen; else table">
+    <app-header></app-header>
+
+    <ng-container [ngSwitch]="step">
+
+      <app-requester-info
+        *ngSwitchCase="1"
+        [requesterInfoFormGroup]="requesterInfoFormGroup"
+        (requesterInfoFormGroupChange)="requesterInfoFormGroup = $event"
+        (pageChange)="pageChange($event)"
+      >
+      </app-requester-info>
+
+      <app-job-details
+        *ngSwitchCase="2"
+        [jobDetailsFormGroup]="jobDetailsFormGroup"
+        (jobDetailsFormGroupChange)="jobDetailsFormGroup = $event"
+        (pageChange)="pageChange($event)"
+      >
+      </app-job-details>
+
+      <app-reqruitment-request
+        *ngSwitchCase="3"
+        [recruitmentRequestFormGroup]="recruitmentRequestFormGroup"
+        (recruitmentRequestFormGroupChange)="recruitmentRequestFormGroup = $event"
+        (pageChange)="pageChange($event)"
+      >
+      </app-reqruitment-request>
+
+      <app-background-verification
+        *ngSwitchCase="4"
+        [backgroundVerificationFormGroup]="backgroundVerificationFormGroup"
+        (backgroundVerificationFormGroupChange)="backgroundVerificationFormGroup = $event"
+        (pageChange)="pageChange($event)"
+      >
+      </app-background-verification>
+
+      <app-summary
+        *ngSwitchDefault
+        [requesterInfoFormGroup]="requesterInfoFormGroup"
+        [isEdit]="isEdit"
+        (cancelForm)="cancel()"
+        (updateEvent)="update()"
+        (submitEmmiter)="submit()">
+      </app-summary>
+
+    </ng-container>
+
+  </div>
+
   <ng-template #table>
-      <app-applicant-details></app-applicant-details>
+    <app-applicant-details
+      (openEditPage)="openEditPage($event)"
+      [isEdit]="isEdit">
+    </app-applicant-details>
   </ng-template>
 </div>

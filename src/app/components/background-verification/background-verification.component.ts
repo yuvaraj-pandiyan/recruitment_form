@@ -60,7 +60,6 @@ export class BackgroundVerificationComponent implements OnInit {
  
   
   goToPage(value: boolean) {
-    console.log("4 th form : ",this.backgroundVerificationFormGroup);
     
     this.pageChange.emit(value);
   }

@@ -11,7 +11,7 @@ export class ApiService {
 
   changeStep$:Subject<number> = new Subject();
 
-  changeStep(id:number) {
+  changeStep(id:number) { 
     this.changeStep$?.next(id);
   }
 
@@ -27,10 +27,10 @@ export class ApiService {
   public updateJobForm(id: string, payload:object): Observable<any> {
     return this.http.put(`${this.BASE_URL}/form/details/${id}`, payload)
   }
-  public getJobForm(id: string, payload:object): Observable<any> {
-    return this.http.put(`${this.BASE_URL}/form/details/${id}`, payload)       // form data by id 
-  }
   public getTableData(){
     return this.http.get(`${this.BASE_URL}/form/tableData`);
+  }
+  public getDataById(id : string): Observable<any>{
+    return this.http.get(`${this.BASE_URL}/form/details/${id}`)
   }
 }

@@ -39,7 +39,6 @@ export class RequesterInfoComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (Object.keys(changes).includes('requesterInfoFormGroup')) {
-      console.log('this.requesterInfoFormGroup', this.requesterInfoFormGroup);
     }
   }
 
@@ -99,15 +98,7 @@ export class RequesterInfoComponent implements OnInit, OnChanges {
   }
 
   nextPage() {
-
-    // if (!this.requesterInfoFormGroup.get('dontReportYes')?.value === true) {
-    //   this.requesterInfoFormGroup.get('managerName')?.setValue('');
-    //   this.requesterInfoFormGroup.get('managerLastName')?.setValue('');
-    //   this.requesterInfoFormGroup.get('managerJobTitle')?.setValue('');
-    //   this.requesterInfoFormGroup.get('managerEmail')?.setValue('');
-    // }
    
-    console.log("Requeste Info 1ST page : ", this.requesterInfoFormGroup);
     this.pageChange.emit(true);
   }
 
@@ -115,17 +106,3 @@ export class RequesterInfoComponent implements OnInit, OnChanges {
    this.dialogRef.close();
   }
 }
-
-// requesterInfoFormGroup{
-//     dontReportNo: false
-//     dontReportYes: true
-//     managerEmail: "mail"
-//     managerJobTitle: ""
-//     managerLastName: ""
-//     managerName: ""
-//     requesterEmail: "mail"
-//     requesterFullName: ""
-//     requesterJobTitle: ""
-//     requesterLastName: ""
-//     requesterWebUrl: "websiteURL"
-// }

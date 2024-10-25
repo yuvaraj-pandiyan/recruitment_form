@@ -22,6 +22,8 @@
        </div>
     </div>
     <div class="submitButton">
-        <button (click)="submit()">Submit</button>
+        <!-- <button (click)="cancel()">Cancel</button> -->
+        <button *ngIf="!isEdit" (click)="submit()">Submit</button>
+        <button *ngIf="isEdit" (click)="update()" >Update</button>
     </div>
 </div>

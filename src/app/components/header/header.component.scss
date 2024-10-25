@@ -37,7 +37,7 @@
         max-width: 1000px;
         li {
             list-style: none;
-            cursor: pointer;
+            cursor: default;
             display: flex;
             gap: 10px;
             flex-direction: column;
@@ -48,7 +48,6 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
                 .index {
                     display: flex;
                     justify-content: center;

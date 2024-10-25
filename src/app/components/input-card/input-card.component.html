@@ -2,25 +2,30 @@
     <span class="title-text">{{ label }}</span>
     <div class="chip-content">
         <div class="input-container">
-            <mat-form-field class="chip-form-field">
-                <input
-                  [(ngModel)]="inputValue" [placeholder]="placeholder"
-                  [matChipInputFor]="chipGrid" (matChipInputTokenEnd)="addChip($event)"
-                />
-                <hr>
-                <mat-chip-grid #chipGrid aria-label="Enter reactive form keywords" [formControl]="formControl">
-                    <mat-chip-row *ngFor="let keyword of formControl.value" (removed)="removeKeyword(keyword)" [disableRipple]="true">
-                        {{keyword}}
-                        <button matChipRemove>
-                            <mat-icon>close</mat-icon>
-                        </button>
-                    </mat-chip-row>
-                </mat-chip-grid>
-              </mat-form-field>
+            <form [formGroup]="formGroup">
+                <mat-form-field class="chip-form-field">
+                    <input
+                        [value]="inputValue"
+                        (keyup)="setInputValue($event)" [placeholder]="placeholder"
+                        [matChipInputFor]="chipGrid"                   
+                    />
+                    <hr>
+                    <mat-chip-grid #chipGrid aria-label="Enter reactive form keywords"  >
+                        <mat-chip-row *ngFor="let keyword of (chipArray?.value || [])" (removed)="removeKeyword(keyword)" [disableRipple]="true"
+                            [style]="'--chip-color: ' + keyword?.color" >
+                            {{keyword?.value}}
+                            <button matChipRemove>
+                                <mat-icon>cancel</mat-icon>
+                            </button>
+                        </mat-chip-row>
+                    </mat-chip-grid>
+                </mat-form-field>
+            </form>
         </div>
-        <button class="save-btn" [disabled]="!formControl.value?.length" (click)="saveChips()">Save</button>
+        <button (click)="addChip()" id="addChipBtn"><img src="../../../assets/add-icon.svg" alt="Addchip-button"></button>
+        <button class="save-btn" [disabled]="!this.formGroup.get('chipArray')?.value?.length" (click)="saveChips()">Save</button>
     </div>
     <mat-chip-set class="saved-values">
-        <mat-chip *ngFor="let keyword of chipValues">{{keyword}}</mat-chip>
+        <mat-chip *ngFor="let keyword of chipValues" [style]="'--chip-color: ' + keyword.color">{{keyword.value}}</mat-chip>
     </mat-chip-set>
 </div>

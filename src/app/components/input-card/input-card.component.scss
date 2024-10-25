@@ -27,7 +27,8 @@
 
             .chip-form-field {
                 width: 100%;
-
+                display: flex;
+                justify-content: space-between;
                 hr {
                     margin: 0;
                 }
@@ -61,20 +62,31 @@
     }
 
     .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
-        background-color: #fff;
-        border: 2px solid gray;
+        background-color: var(--chip-color);
+        // border: 2px solid gray;
         border-radius: 5px;
+        color: white;
         height: 25px;
     }
 
     .mat-mdc-chip-row {
         .mat-mdc-chip-focus-overlay {
             opacity: 0;
-            background-color: #fff;
+            background-color: var(--chip-color);
+            color: white;
         }
     
         button.mat-mdc-chip-remove {
             padding: 0 5px;
         }
+    }
+}
+
+#addChipBtn{
+    border: none;
+    background-color: white;
+    img{
+        height: 25px;
+        width: 25px;
     }
 }

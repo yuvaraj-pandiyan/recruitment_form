@@ -52,13 +52,16 @@ export class JobDetailsComponent implements OnInit {
     this.roleAndResponsibility.push(this.fb.control('', Validators.required)); 
   }
 
+
+  // Validators.pattern(common.ALPHA_NUMERIC)
+  // [Validators.required,Validators.pattern(common.EMPTY_SPACE)]
   assignValuesToForm(){
     this.jobDetailsFormGroup = this.fb.group({
       jobTitle: this.fb.control('', [Validators.required, Validators.pattern(common.ALPHA_NUMERIC),Validators.pattern(common.EMPTY_SPACE)]),
       roleType: this.fb.control('', [Validators.required, Validators.pattern(common.ALPHA_NUMERIC),Validators.pattern(common.EMPTY_SPACE)]),
       seniorityLevel: this.fb.control('', [Validators.required, Validators.pattern(common.ALPHA_NUMERIC),Validators.pattern(common.EMPTY_SPACE)]),
-      workExperience: this.fb.control('', [Validators.required, Validators.pattern(common.ALPHA_NUMERIC),Validators.pattern(common.EMPTY_SPACE)]),
-      relevantWorkExperience: this.fb.control('', [Validators.required, Validators.pattern(common.ALPHA_NUMERIC),Validators.pattern(common.EMPTY_SPACE)]),
+      workExperience: this.fb.control('', [Validators.required]),
+      relevantWorkExperience: this.fb.control('', [Validators.required]),
       industry: this.fb.control('', [Validators.required, Validators.pattern(common.ALPHA_NUMERIC),Validators.pattern(common.EMPTY_SPACE)]),
       department: this.fb.control('', [Validators.required, Validators.pattern(common.ALPHA_NUMERIC),Validators.pattern(common.EMPTY_SPACE)]),
       subDepartment: this.fb.control('', [Validators.required, Validators.pattern(common.ALPHA_NUMERIC),Validators.pattern(common.EMPTY_SPACE)]),
@@ -70,8 +73,8 @@ export class JobDetailsComponent implements OnInit {
     })
   }
 
+
   goToPage(value: boolean) {
-    console.log("second Value ",this.jobDetailsFormGroup);   
     this.pageChange.emit(value);
   }
 }

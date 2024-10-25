@@ -177,9 +177,9 @@
         <div class="roles-array" formArrayName="roleAndResponsibilities">
             <div class="icon-wrap" *ngFor="let item of roleAndResponsibility.controls; let i = index; let l = last">
                 <div class="input-field width-fit">
-                    <label>{{'Duties and expectations ' + (i+1) + ': '}}</label>
+                    <label>{{'Duties and expectations ' + (i+1) + ': '}} <span>*</span></label>
                     <input type="text" maxlength="300" placeholder="Duties and expectations"
-                        [formControlName]="i">
+                        [formControlName]="i" required>
                 </div>
                 <div class="icons" *ngIf="roleAndResponsibility.controls.length > 1" (click)="removeItem(i)">
                     <img src="../../../assets/minus-icon.svg" alt="">
@@ -189,6 +189,12 @@
                 </div>
             </div>
         </div>
+        <div class="warning-letter"
+        *ngIf="jobDetailsFormGroup.controls['roleAndResponsibilities'].invalid && (jobDetailsFormGroup.controls['roleAndResponsibilities'].dirty || jobDetailsFormGroup.controls['noOfPositions'].touched)">
+        <small *ngIf="jobDetailsFormGroup.controls['roleAndResponsibilities'].hasError('required')">No of position is
+            required
+            *.</small>
+    </div>
     </div>
     <div class="action-container">
         <button class="previous-btn" (click)="goToPage(false)">Previous</button>

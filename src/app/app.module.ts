@@ -23,9 +23,10 @@ import {MatTableModule} from '@angular/material/table';
 import { ApplicantDetailsComponent } from './components/applicant-details/applicant-details.component';
 import { MatInputModule } from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { DeleteConfirmationPopupComponent } from './components/delete-confirmation-popup/delete-confirmation-popup.component';
+import { NgrokInterceptor } from './interceptors/ngrok.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,12 @@ import { DeleteConfirmationPopupComponent } from './components/delete-confirmati
       provide: MatDialogRef,
       useValue: {}
     },
-    { provide: MAT_DIALOG_DATA, useValue: {} }
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NgrokInterceptor,
+      multi: true
+  }
 	],
 
   bootstrap: [AppComponent]

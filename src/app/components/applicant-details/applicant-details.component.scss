@@ -1,30 +1,71 @@
-#actionIcons{
-    height: 30px;
-    width: 30px;
-    background-color: white;
+#actionIcons {
+  height: 30px;
+  width: 30px;
+  background-color: white;
 }
-#editBtn{
-    background-color: white;
-    border: none;
-}
-
-.applicantDetails{
-    width: 90vw;
+#editBtn {
+  background-color: white;
+  border: none;
 }
 
-.applicantTableDetails{
-    border: 1px solid black;
-    width: 100%;
-    max-height: 500px;
-    overflow: auto;
-    th{
-        text-transform: capitalize;
-        font-weight: bold;  
-    }
+.applicantDetails {
+  width: 90vw;
 }
 
-
-  
-  .mat-column-name {
-    height: 100px;
+.applicantTableDetails {
+  width: 100%;
+  tr {
+    height: 35px;
+    text-transform: capitalize;
   }
+}
+
+.table-container {
+  max-height: calc(100vh - 350px);
+  min-height: 100px;
+  margin-bottom: 10px;
+  overflow: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.349);
+  ::ng-deep thead {
+    position: sticky;
+    top: 0;
+    tr {
+      font-weight: bold;
+      color: rgba(1, 14, 29, 0.918);
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 2px;
+    background: rgba(255, 255, 255, 0.87);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(1, 18, 48, 0.9) !important;
+    border-radius: 5px;
+  }
+}
+
+.mat-column-name {
+  height: 100px;
+}
+
+:host ::ng-deep .custom-form-field {
+  width: 300px;
+  border-radius: 20%;
+  height: 70px;
+}
+
+::ng-deep .applicantDetails {
+  width: 55vh;
+}
+
+.applicant-details-table-paginator-con {
+  ::ng-deep {
+    button {
+      &:disabled {
+        background-color: rgba(0,0,0,0) !important;
+      }
+    }
+  }
+}

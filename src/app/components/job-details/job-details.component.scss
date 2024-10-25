@@ -126,9 +126,9 @@
 }
 
 .card-container {
-    width: 90%;
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: calc(50% - 20px) calc(50% - 20px);
     gap: 50px 40px;
     margin-top: 40px;
 }
@@ -162,5 +162,8 @@
     }
     .mat-mdc-select-value-text {
         font-size: 13px;
+    }
+    .mat-mdc-standard-chip span.mdc-evolution-chip__text-label{
+        color: #000;
     }
 }

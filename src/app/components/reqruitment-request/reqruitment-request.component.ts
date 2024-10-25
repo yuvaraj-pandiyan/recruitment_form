@@ -63,7 +63,6 @@ export class ReqruitmentRequestComponent implements OnInit {
 
 
   goToPage(value: boolean) {
-    console.log("Third Form : ",this.recruitmentRequestFormGroup);   
     this.pageChange.emit(value);
   }
 }
